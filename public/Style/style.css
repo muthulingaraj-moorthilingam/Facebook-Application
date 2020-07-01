@@ -1,0 +1,645 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+}
+body{
+	background: #F0F2F5;
+}
+hr{
+	margin: 10px 18px;
+    background: #CED0D4;
+}
+#header{
+	box-shadow: 0px 0px 3px 0px rgba(158,153,158,1);
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+}
+.main-page{
+	padding-top: 60px;
+}
+.Navbar-header{
+	background-color: #fff;
+}
+#container{
+	display: flex;
+    
+}
+.right-logo{
+	display: flex;
+	padding: 10px 0px;
+	position: relative;
+}
+.logo{
+	display: block;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    background-image: url(/Images/new-logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60px;
+}
+.logo-hide{
+	display: none;
+}
+.pa{
+	border-top-right-radius: 15px;
+    box-shadow: -5px 4px 18px -1px rgba(0,0,0,0.45);
+    border-bottom-right-radius: 15px;
+}
+.FB-right{
+	padding-right: 16px;
+	padding-left: 16px;
+}
+#search-box{
+	margin-left: 8px;
+	position: relative;
+	width:240px;
+}
+.serach-path{
+	width: 100%;
+    border: none;
+    outline: none;
+    background: #F0F2F5;
+    border-radius: 50px;
+    height: 40px;
+    padding: 8px 16px 9px 36px;
+}
+.ip-trans{
+	 transition:0.5s;
+}
+.input{
+	padding-left:16px;
+	transition:0.5s;
+}
+input::placeholder{
+	font-size: 15px;
+}
+.icon{
+	position: absolute;
+    background-image: url(/Images/FB-Search.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 11px;
+    left: 11px;
+    width: 16px;
+    height: 17px;
+    background-size: 15px;
+    z-index: 1;
+}
+.arrow{
+	display: none;
+	width: 40px;
+	height: 40px;
+	background-image: url("/Images/FB-Arrow.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    transition:0.5s;
+    cursor: pointer;
+}
+.arrow-show{
+	display: block;
+	width: 40px;
+	height: 40px;
+	background-image: url("/Images/FB-Arrow.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.arrow-show:hover{
+	background-color: #f2f2f2;
+	border-radius: 50%;
+	cursor: pointer;
+}
+#nav-center{
+	padding-left: 60px;
+    padding-right: 17px;
+}
+.navigation-ul{
+	list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.navigation-li{
+	width: 112px;
+    text-align: center;
+    display: inline-block;
+    position:relative;
+}
+.nav-active{
+	 border-bottom: 3px solid #1877F2;
+}
+.nav-icon-a{
+	display: flex;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    justify-content: center;
+    padding: 13px 0px;
+    margin-top: 3px;
+}
+.nav-icon{
+	width: 28px;
+	height: 28px;
+	background-position: center;
+    background-repeat: no-repeat;
+}
+.nav-mar{
+	margin-left: 5px;
+}
+.nav-icon-a:hover{
+	background-color: #f2f2f2;
+	border-radius: 10px;
+}
+.active:hover{
+	background-color:transparent;
+	border-radius: 0px;
+}
+.home{
+	background-image: url('/Images/FB-Active_Home.png');
+}
+.watech{
+	background-image: url('/Images/FB-Watch_normal.png');
+}
+.marketplace{
+	background-image: url('/Images/FB-Market_normal.png');
+}
+.groups{
+	background-image: url('/Images/FB-Group-normal.png');
+}
+.game{
+	background-image: url('/Images/FB-Game-normal.png');
+}
+.title{
+	display: none;
+	
+}
+.title-mp{
+	display: none;
+}
+.navigation-li:hover .title{
+	display: block;
+	padding: 7px 11px;
+	background-color: #000;
+	opacity: 0.75;
+	position: absolute;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 7px;
+    top: 62px;
+    z-index: 1;
+    left: 29px;
+}
+.navigation-li:hover .title-mp{
+	display: block;
+	padding: 7px 11px;
+	background-color: #000;
+	opacity: 0.75;
+	position: absolute;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 7px;
+    top: 62px;
+    z-index: 1;
+	left: 14px;
+}
+.left-side{
+	display: flex;
+	padding: 10px 0px;
+}
+.user-cont{
+	display: flex;
+    border-radius: 50%;
+    text-decoration:none;
+    padding: 4px 12px;
+    height: 36px;
+}
+.user-profile{
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background-image: url("/Images/u.png");
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: 34px;
+    margin-right:6px;
+    margin-left: -8px;
+}
+.u-name{
+	text-decoration-line: none;
+	font-size: 15px;
+    font-weight: 600;
+    color: #000;
+    margin: 6px 0px;
+    line-height: 22px;
+}
+.user-cont:hover{
+	background-color: #f2f2f2;
+	border-radius: 50px;
+	text-decoration: none;
+}
+.p-e-s-ul{
+	list-style: none;
+	margin:0;
+	display: flex;
+	margin-left: 10px
+}
+.p-e-s-li{
+	margin-right: 8px;
+	padding: 10px 0px;
+	cursor: pointer;
+	position: relative;
+}
+.menu-div{
+	width: 40px;
+	height: 40px;
+	background-color:#E4E6EB;
+	border-radius: 50%;
+	position: relative;
+}
+.pluse{
+	display: block;
+    width: 17px;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    top: 19px;
+    left: 11px;
+}
+.pluse::after{
+	content: "";
+    display: block;
+    width: 2px;
+    height: 15px;
+    background-color: #000;
+    position: absolute;
+    top: -6px;
+    left: 7px;
+}
+.menu-div:hover .title{
+	display: block;
+	padding: 7px 11px;
+	background-color: #000;
+	opacity: 0.9;
+	position: absolute;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 7px;
+    top: 62px;
+    z-index: 1;
+}
+.logo-icon{
+	border-radius: 50%;
+	background-image: url("/Images/FB-Small-Msg-normal.png");
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+}
+.notific{
+	background-image: url("/Images/FB-Notific-normal.png");
+}
+.account{
+	background-image: url("/Images/FB-Account.png");
+	background-size: 12px;
+}
+.account-act{
+	background-image: url("/Images/FB-Account-act.png");
+	background-size: 13px;
+	background-color: #e6f2ff;
+}
+.menu-div:hover{
+	background-color:#d8d9df;
+}
+.hide{
+	display: none;
+}
+.show{
+	display: block;
+}
+.align-list{
+	position: absolute;
+    top: 55px;
+    right: -146px;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0px 0px 5px 0px rgba(158,153,158,1);
+}
+.acc-align{
+	right: -2px;
+}
+.fb-ul-create{
+	width: 360px;
+	overflow-y: auto;
+    max-height: calc(100vh - 57px);
+}
+.head-title h1{
+	font-weight: 700;
+    padding: 20px 16px 16px 12px;
+    font-size: 24px;
+    margin: 0;
+}
+.create-fb-ul{
+	list-style: none;
+    margin: 0;
+    padding: 4px 0px 8px 0px;
+}
+.create-fb-li{
+	padding: 0px 8px;
+	cursor: pointer;
+}
+.create-fb-div{
+	display: flex;
+	padding: 0px 8px;
+}
+.icon-create{
+    width: 40px;
+    height: 37px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-color: #E4E6EB;
+    background-position-x: 8px;
+    background-position-y: 7px;
+    margin: 8px 0px 8px 0px;
+}
+.cReate{
+	background-image: url(/Images/Create-img/FB-Cr-edit.png);
+}
+.sTory{
+	background-image: url(/Images/Create-img/FB-Story.png);
+	background-position-y: 10px;
+    background-position-x: 7px;
+}
+.lIfe-Event{
+	background-image: url(/Images/Create-img/FB-Life-Event.png);
+	background-position-y: 8px;
+    background-position-x: 7px;
+}
+.page{
+	background-image: url(/Images/Create-img/FB-Page.png);
+	background-position-y: 9px;
+    background-position-x: 9px;
+}
+.ad{
+	background-image: url(/Images/Create-img/FB-Ads.png);
+	background-position-y: 11px;
+    background-position-x: 7px;
+}
+.group{
+	background-image: url(/Images/Create-img/FB-Group.png);
+	background-position-y: 8px;
+    background-position-x: 7px;
+}
+.event{
+	background-image: url(/Images/Create-img/FB-Event.png);
+	background-position-y: 8px;
+    background-position-x: 7px;
+}
+.market-place{
+	background-image: url(/Images/Create-img/FB-Marketplace.png);
+	background-position-y: 9px;
+    background-position-x: 8px;
+}
+.fund{
+	background-image: url(/Images/Create-img/FB-Foundries.png);
+	background-position-y: 10px;
+    background-position-x: 7px;
+}
+.cont-create{
+	padding: 8px 0px 9px 12px;
+	width: 100%;
+}
+.sp-create{
+	display: block;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 19.5px;
+}
+.sp-create-discrbe{
+	display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgb(138, 141, 145);
+}
+.create-fb-div:hover{
+	background-color:#f2f2f2;
+	border-radius: 10px;
+}
+.mar-pro{
+	margin-top: 8px;
+}
+.profile{
+	padding: 0px 8px;
+}
+.pro-img{
+	display: flex;
+	text-decoration: none;
+	margin-bottom: 8px;
+}
+.ul-account{
+	list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 8px;
+}
+.img-pro{
+	width: 68px;
+    height: 60px;
+    border-radius: 50%;
+    background-image: url(/Images/u.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 58px;
+    margin: 8px 12px 8px 8px;
+}
+.name-pro{
+	padding: 12px 0px;
+}
+.name-profile{
+	color: #000;
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 4px 0px;
+}
+.name-profile-see{
+	display: block;
+    color: rgb(101, 103, 107);
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: -7px;
+}
+.gf{
+	background-image: url("/Images/Account/FB-Pro-gf.png");
+	background-position-y: 10px;
+}
+.set{
+	background-image: url("/Images/Account/FB-Pro-set.png");
+	background-position-y: 9px;
+    background-position-x: 7px;
+}
+.set-span{
+	margin-top: 8px;
+}
+.h-s{
+	background-image: url("/Images/Account/FB-Pro-sub.png");
+	background-position-y: 9px;
+    background-position-x: 7px;
+}
+.d-m{
+	background-image: url("/Images/Account/FB-Pro-dm.png");
+	background-position-y: 9px;
+    background-position-x: 9px;
+}
+.s-c-f{
+	background-image: url("/Images/FB-Arrow.png");
+	background-position-y: 11px;
+    background-position-x: 9px;
+}
+.log-out{
+	background-image: url("/Images/Account/FB-Pro-Lo.png");
+	background-position-y: 9px;
+    background-position-x: 9px;
+}
+.swt-btm{
+	display: flex;
+    justify-content: space-between;
+}
+.switch-div{
+	width: 52px;
+    height: 28px;
+    border-radius: 50px;
+    margin-top: 5px;
+    position: relative;
+}
+.sw-normal{
+	background: #C3C5C9;
+}
+.switch-span{
+	display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 2px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: 0.3s;
+}
+.sw-normal-span{
+	left: 2px;
+}
+.bg-clr{
+	background-color: #4693FF;
+}
+.bg-span-clr{
+	left: 26px;
+}
+.pro-img:hover{
+	background-color:#f2f2f2;
+	border-radius: 10px;
+	text-decoration:none;
+}
+.more{
+    padding: 16px;
+}
+.more-span,.more-span-cpy{
+	font-size: 13px;
+    font-weight: 400;
+    color: rgb(101, 103, 107);
+    cursor: pointer;
+}
+.more-span::after{
+	content: "";
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    background-color: rgb(101, 103, 107);
+    margin: 3px 0px;
+    margin-right: -1px;
+    margin-left: 6px;
+}
+.more-span:hover{
+	text-decoration: underline;
+	text-decoration-color:rgb(101, 103, 107); 
+}
+.react-part-main-app{
+	display: flex;
+}
+.section-left-side{
+	margin-top: 16px;
+    width: 320px;
+    overflow-y: auto;
+    height: calc(100vh - 76px);
+}
+.section-left-side::-webkit-scrollbar{
+	width: 10px;
+}
+.section-left-side::-webkit-scrollbar-track{
+	background-color: transparent;
+	border-radius: 10px;
+}
+.section-left-side::-webkit-scrollbar-thumb{
+	background-color:rgb(206, 208, 212);
+	border-radius: 10px;
+}
+.p-a-left{
+	padding: 0px 8px;
+}
+.user-left-a{
+	display: flex;
+    text-decoration: none;
+    height: 44px;
+}
+.user-img-part,.user-menu-img-part{
+	width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin: 8px 6px 4px 8px;
+    background-image: url(/Images/u.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 28px;
+}
+.user-name-part,.user-menu-name-part{
+	padding: 2px 0px 2px 4px;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(5, 5, 5);
+    line-height: 42px;
+}
+.user-left-a:hover{
+	background-color: #e4e6e9;
+	border-radius: 10px;
+	text-decoration: none;
+}
+.img-info{
+	height: 28px;
+    width: 28px;
+    margin:8px 6px 4px 8px;
+}
+.less-more-arrow{
+	height: 28px;
+    width: 28px;
+    margin:8px 6px 4px 8px;
+    border-radius: 50px;
+    background-color: #e4e5eb;
+    background-image: url("/Images/Fb-Down-see.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.rotate{
+	transform: rotate(180deg);
+}
+#center-main-page-app{
+	padding:0px 32px;
+	box-sizing: border-box;
+}
+.inner-center{
+	width: 647px;
+	margin-top: 16px;
+	padding:0px 30px;
+}
+.story-div-part{
+	margin: 0px -4px;
+    padding: 8px 0px 24px 0px;
+}
