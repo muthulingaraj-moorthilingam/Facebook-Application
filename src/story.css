@@ -1,0 +1,56 @@
+.parentStory{
+	display: flex;
+}
+.left-side-create{
+	width: 360px;
+    background: #fff;
+    padding: 20px 16px 12px;
+}
+.head-story{
+	position: relative;
+}
+.sto-apan{
+	color: rgb(101, 103, 107);
+    font-size: 13px;
+    font-weight: 400;
+    display: inline-block;
+    line-height: 20px;
+}
+.head-1{
+	font-size: 24px;
+    font-weight: 700;
+    color: rgb(5,5,5);
+    margin: 0;
+}
+.setting-img{
+	background-image: url('./story-component/Story/FB-Setting.png');
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #dee0e5;
+    filter: opacity(0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.outer-left-side{
+	padding: 0px 16px;
+    display: flex;
+}
+.user-name-left{
+	font-size: 17px;
+    font-weight: 500;
+    color: rgb(5,5,5);
+    line-height: 50px;
+    padding: 12px 0px;
+    padding-left: 30px;
+}
+.user-pic-left{
+	background-image: url('./story-component/Story/FB-D-u1.png');	
+}
+.user-details-left-side{
+	margin-top: 8px;
+}

@@ -10,6 +10,11 @@ hr{
 	margin: 10px 18px;
     background: #CED0D4;
 }
+.clearfix{
+	content: "";
+	display: block;
+	clear: both;
+}
 #header{
 	box-shadow: 0px 0px 3px 0px rgba(158,153,158,1);
 	position: fixed;
@@ -24,7 +29,17 @@ hr{
 }
 #container{
 	display: flex;
-    
+    position: relative;
+    justify-content: center;
+}
+#parent{
+	position: absolute;
+	left: 0px;
+}
+#left-side{
+	display: flex;
+    position: absolute;
+    right: 6px;
 }
 .right-logo{
 	display: flex;
@@ -114,7 +129,7 @@ input::placeholder{
 }
 #nav-center{
 	padding-left: 60px;
-    padding-right: 17px;
+    padding-right: 58px;
 }
 .navigation-ul{
 	list-style: none;
@@ -130,6 +145,7 @@ input::placeholder{
 .nav-active{
 	 border-bottom: 3px solid #1877F2;
 }
+
 .nav-icon-a{
 	display: flex;
     text-decoration: underline;
@@ -642,4 +658,22 @@ input::placeholder{
 .story-div-part{
 	margin: 0px -4px;
     padding: 8px 0px 24px 0px;
+}
+.cross-icon{
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(228,230,235);
+    background-image: url(/Images/Account/FB-cross1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border-radius: 50%;
+    cursor:pointer;
+    margin-right: 8px;
+}
+.parent-story{
+	width: 360px;
+    background: #fff;
+    box-shadow: -1px 1px 3px rgba(0,0,0,0.3);
 }

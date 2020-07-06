@@ -166,7 +166,6 @@ function show_more(){
 
 
 
-
 document.addEventListener("click",hideBlocks);
 
 function hideBlocks(){
