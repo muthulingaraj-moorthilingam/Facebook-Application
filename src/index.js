@@ -138,6 +138,8 @@ function hideElement(){
 	var user_Left_side = document.getElementById("left-side-user");
 	var  messenger_Icon = document.getElementById("messenger-icon");
 	var search_Bar = document.getElementById("search-box");
+	var left_section = document.getElementById("hide_left_side");
+	var root = document.getElementById("root-create");
 
 	if(cross_Icon.classList.contains("hide")){
 		cross_Icon.classList.remove("hide");
@@ -148,4 +150,20 @@ function hideElement(){
 	nav_Bar.classList.add("hide");
 	messenger_Icon.classList.add("hide");
 	user_Left_side.classList.add("hide");
+
+	if(left_section.classList.contains("show")){
+		left_section.classList.remove("show");
+		left_section.classList.add("hide");
+	}
+	if(messenger_Icon.classList.contains("show")){
+		messenger_Icon.classList.remove("show");
+		messenger_Icon.classList.add("hide");
+	}
+	if(!root.classList.contains("hide")){
+		root.classList.add("show");
+	}
+	else{
+		root.classList.remove("hide");
+		root.classList.add("show");
+	}
 }

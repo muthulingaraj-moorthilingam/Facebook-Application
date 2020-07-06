@@ -675,5 +675,5 @@ input::placeholder{
 .parent-story{
 	width: 360px;
     background: #fff;
-    box-shadow: -1px 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }

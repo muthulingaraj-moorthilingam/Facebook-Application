@@ -12,7 +12,7 @@ export class Left extends React.Component{
     		borderRadius:"50%"
 		};
 		return(
-			<div style={{backgroundColor:"#fff"}}>
+			<div style={{backgroundColor:"#fff"}} className="box-sh" >
 				<div className="left-side-create">
 					<div className="head-story">
 						<a href={this.props.attribute.href} className="sto-apan" >{this.props.attribute.content}</a>
