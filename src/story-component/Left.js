@@ -12,7 +12,7 @@ export class Left extends React.Component{
     		borderRadius:"50%"
 		};
 		return(
-			<div style={{backgroundColor:"#fff"}} className="box-sh" >
+			<div style={{backgroundColor:"#fff"}} className="box-sh" id="box-story" >
 				<div className="left-side-create">
 					<div className="head-story">
 						<a href={this.props.attribute.href} className="sto-apan" >{this.props.attribute.content}</a>
@@ -29,6 +29,7 @@ export class Left extends React.Component{
 					</div>
 				</div>
 				<hr style={{margin:"20px 0px 0px 0px"}} />
+				<div id="story-box-ip"></div>
 			</div>
 		);
 	}

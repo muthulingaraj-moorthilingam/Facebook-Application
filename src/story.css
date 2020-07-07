@@ -106,3 +106,69 @@
 .story{
 	padding-top: 11px;
 }
+.add-SPS{
+	position: relative;
+	cursor: pointer;
+}
+.position{
+	position: absolute;
+    left: 72px;
+    top: 131px;
+}
+.add-poto-story-name{
+	font-size: 13.3px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 18px;
+    padding-top: 8px;
+}
+.parent-sto-div-container{
+	padding: 0px 16px;
+}
+.inner-sto-div{
+	margin-top:16px;
+}
+.border-div-sto{
+	background-color: #fff;
+	
+	border-radius: 6px;
+	cursor: text;
+	width: 328px;
+	height: 184px;
+	position: relative;
+}
+.textarea{
+	border: 1.5px solid rgb(138, 141, 145);
+    outline: transparent;
+    padding: 29px 16px 13px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    width: 326px;
+    height: 182px;
+    resize: none;
+    white-space: pre-wrap;
+    overflow: hidden;
+    overflow-y: auto;
+    border-radius: 6px;
+}
+.textarea:focus{
+	border-color: rgb(24, 118, 242);
+}
+.textarea:focus ~ #sp-text{
+	display: block;
+}
+.textarea::placeholder{
+	font-size: 16px;
+	font-weight: 400;
+	color:rgb(101, 103, 107);
+	opacity: 50%;
+}
+#sp-text{
+	display: none;
+	color: rgb(24, 118, 242);
+    font-weight: 400;
+    font-size: 13px;
+    position: absolute;
+    top: 6px;
+    left: 16px
+}

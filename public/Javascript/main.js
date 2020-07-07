@@ -198,7 +198,7 @@ function showhomePage(event){
 	}
 	if(searchBox.classList.contains("hide")){
 		searchBox.classList.remove("hide");
-		searchBox.classList.add("show");
+		//searchBox.classList.add("show");
 	}
 	if(parentDiv.classList.contains("parent-story")){
 		parentDiv.classList.remove("parent-story");
@@ -210,6 +210,7 @@ function showhomePage(event){
 	if(user_Left_side.classList.contains("hide")){
 		user_Left_side.classList.remove("hide")
 	}
+	
 }
 
 document.addEventListener("click",hideBlocks);

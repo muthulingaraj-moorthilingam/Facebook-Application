@@ -146,7 +146,13 @@ function hideElement(){
 		cross_Icon.classList.add("show");
 	}
 	parent.classList.add("parent-story");
-	search_Bar.classList.add("hide");
+	if(!search_Bar.classList.contains("hide")){
+		search_Bar.classList.add("hide");
+	}
+	else{
+		search_Bar.classList.remove("hide");
+		search_Bar.classList.add("show");
+	}
 	nav_Bar.classList.add("hide");
 	messenger_Icon.classList.add("hide");
 	user_Left_side.classList.add("hide");
