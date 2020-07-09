@@ -34,3 +34,4 @@ export class Left extends React.Component{
 		);
 	}
 }
+

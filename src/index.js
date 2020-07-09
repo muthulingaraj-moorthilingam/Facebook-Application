@@ -132,6 +132,7 @@ ReactDOM.render(
 
 
 function hideElement(){
+	var main_page = document.getElementById("main-page");
 	var parent = document.getElementById("parent")
 	var cross_Icon = document.getElementById("cross-arrow");
 	var nav_Bar = document.getElementById("nav-center");
@@ -141,19 +142,26 @@ function hideElement(){
 	var left_section = document.getElementById("hide_left_side");
 	var root = document.getElementById("root-create");
 
+	if(!main_page.classList.contains("pad-top")){
+		main_page.classList.add("pad-top");
+	}
+
 	if(cross_Icon.classList.contains("hide")){
 		cross_Icon.classList.remove("hide");
 		cross_Icon.classList.add("show");
 	}
 	parent.classList.add("parent-story");
-	if(!search_Bar.classList.contains("hide")){
+	if(!search_Bar.classList.contains("hide") ){
 		search_Bar.classList.add("hide");
 	}
 	else{
 		search_Bar.classList.remove("hide");
 		search_Bar.classList.add("show");
 	}
-	nav_Bar.classList.add("hide");
+	if(nav_Bar.classList.contains("show-flex")){
+		nav_Bar.classList.remove("show-flex");
+		nav_Bar.classList.add("hide-flex");
+	}
 	messenger_Icon.classList.add("hide");
 	user_Left_side.classList.add("hide");
 

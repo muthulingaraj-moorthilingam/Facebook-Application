@@ -173,12 +173,19 @@ var searchBox =document.getElementById("search-box");
 var parentDiv = document.getElementById("parent");
 var user_Left_side = document.getElementById("left-side-user");
 var  messenger_Icon = document.getElementById("messenger-icon");
+var main_page = document.getElementById("main-page");
+var navBar = document.getElementById("nav-center");
+
 
 function showhomePage(event){
-	console.log("yes"+event.target.className);
-	var navBar = document.getElementById("nav-center");
-	if(navBar.classList.contains("hide")){
-		navBar.classList.remove("hide");
+	//console.log("yes"+event.target.className);
+	if(main_page.classList.contains("pad-top")){
+		main_page.classList.remove("pad-top");
+	}
+
+	if(navBar.classList.contains("hide-flex")){
+		navBar.classList.remove("hide-flex");
+		navBar.classList.add("show-flex")
 	}
 	if(root.classList.contains("show")){
 		root.classList.remove("show");

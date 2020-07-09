@@ -9,6 +9,7 @@ class Createstory extends React.Component{
 		const attributes ={ src:"../public/Images/FB-D-u1.png",href:"#",content:"Stories",headding:"Your story"};
 		return(
 			<div className="parentStory">
+				<Cross />
 				<Left attribute={attributes} />
 				<Right />
 			</div>	
@@ -17,3 +18,9 @@ class Createstory extends React.Component{
 }
 
 export default Createstory;
+
+export class Cross extends React.Component{
+	render(){
+		return(<div></div>);
+	}
+}
