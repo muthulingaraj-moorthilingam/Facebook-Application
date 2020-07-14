@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import '../story.css';
 export class Right extends React.Component{
 
@@ -13,7 +13,7 @@ export class Right extends React.Component{
 	showTextstory(event){
 		console.log(this.state);
 		renderCopmponent();
-		ReactDOM.render(<Story data={this.state}/>,document.getElementById("story-box-ip"));
+		//ReactDOM.render(<Story data={this.state}/>,document.getElementById("story-box-ip"));
 	}
 
 	render(){
@@ -54,6 +54,12 @@ export class Right extends React.Component{
 }
 
 export class Post extends React.Component{
+	constructor(props){
+		super(props);
+		this.state ={
+			input:null
+		}
+	}
 	render(){
 		return(
 		<div className ="post-block-hide style-post" id="show-post">
@@ -76,38 +82,17 @@ export class Post extends React.Component{
 	}
 }
 
-class Story extends React.Component{
-	constructor(props){
-		super(props);
-		this.state ={
-			value:null
-		}
-	}
-	onChange = (event) =>{
-		console.log(event.target.value);
-		this.setState({value:event.target.value});
-		console.log(this.state)
-	}
-
-	render(){
-		return(
-			<div className="parent-sto-div-container">
-				<div className="inner-sto-div">
-					<div className="border-div-sto">
-						<textarea className="textarea" placeholder="Start typing" onChange={this.onChange}>
-						</textarea>
-						<span id="sp-text">Text{this.state.value}</span>
-						
-					</div>
-				</div>
-			</div>
-		);
-	}
-}
 
 function renderCopmponent(){
+
 	var st_Path = document.getElementById("hide_st");
+	var text_Area = document.getElementById("story-box-ip");
 	var st_binding_post = document.getElementById("show-post");
+
+	if(text_Area.classList.contains("hide")){
+		text_Area.classList.remove("hide");
+		text_Area.classList.add("show");
+	}
 	if(st_Path.classList.contains("hide") || !(st_Path.classList.contains("show"))){
 		st_Path.classList.add("hide");
 	}

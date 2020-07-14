@@ -164,7 +164,7 @@ function show_more(){
 	}
 }
 
-var showHomePage = document.getElementById("cross-arrow");
+/*var showHomePage = document.getElementById("cross-arrow");
 showHomePage.addEventListener("click",showhomePage);
 var root = document.getElementById("root-create");
 var left_section = document.getElementById("hide_left_side");
@@ -175,10 +175,22 @@ var user_Left_side = document.getElementById("left-side-user");
 var  messenger_Icon = document.getElementById("messenger-icon");
 var main_page = document.getElementById("main-page");
 var navBar = document.getElementById("nav-center");
+var right_logo =document.getElementById("right-logo");
 
 
 function showhomePage(event){
 	//console.log("yes"+event.target.className);
+
+	var logo = document.getElementById("logo");
+
+	if(right_logo.classList.contains("r-hide")){
+		right_logo.classList.remove("r-hide");
+	}
+
+	if(logo.classList.contains("logo-1")){
+		logo.classList.remove("logo-1");
+	}
+
 	if(main_page.classList.contains("pad-top")){
 		main_page.classList.remove("pad-top");
 	}
@@ -217,9 +229,9 @@ function showhomePage(event){
 	if(user_Left_side.classList.contains("hide")){
 		user_Left_side.classList.remove("hide")
 	}
-	
-}
 
+}
+*/
 document.addEventListener("click",hideBlocks);
 
 function hideBlocks(){

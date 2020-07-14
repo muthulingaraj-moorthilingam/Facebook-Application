@@ -1,10 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Createstory from "./Createstory";
+//import Createstory from "./Createstory";
+import Left from "./Left";
 import './index.css';
 
 
+class Garage extends React.Component{
+	constructor(){
+		super();
+		this.state={
+			story:[]
+		}
+	}
+	render(){
+		return(
+			<section className="center-part-main-page">
+				<div id="react-part-main-app" className="react-part-main-app">
+					<div id="left-side-main-page" >
+						<Left />
+					</div>
+				</div>
+			</section>
+		);
+	}
+}
 
+ReactDOM.render(
+  	<Garage url="#" alt="" src="/Images/FB-plus.png" content="Create a story" />,
+  document.getElementById('main-page')
+);
+
+export default Garage;
+
+
+/*
 class Garage extends React.Component{
 	constructor(props){
 		super(props);
@@ -134,23 +163,33 @@ ReactDOM.render(
 function hideElement(){
 	var main_page = document.getElementById("main-page");
 	var parent = document.getElementById("parent")
-	var cross_Icon = document.getElementById("cross-arrow");
+	//var cross_Icon = document.getElementById("cross-arrow");
 	var nav_Bar = document.getElementById("nav-center");
 	var user_Left_side = document.getElementById("left-side-user");
 	var  messenger_Icon = document.getElementById("messenger-icon");
 	var search_Bar = document.getElementById("search-box");
 	var left_section = document.getElementById("hide_left_side");
 	var root = document.getElementById("root-create");
+	var logo = document.getElementById("logo");
+	var right_logo = document.getElementById("right-logo");
+
+	if(!right_logo.classList.contains("r-hide")){
+		right_logo.classList.add("r-hide");
+	}
+
+	if(!logo.classList.contains("logo-1")){
+		logo.classList.add("logo-1");
+	}
 
 	if(!main_page.classList.contains("pad-top")){
 		main_page.classList.add("pad-top");
 	}
 
-	if(cross_Icon.classList.contains("hide")){
+	/*if(cross_Icon.classList.contains("hide")){
 		cross_Icon.classList.remove("hide");
 		cross_Icon.classList.add("show");
-	}
-	parent.classList.add("parent-story");
+	}*/
+	/*parent.classList.add("parent-story");
 	if(!search_Bar.classList.contains("hide") ){
 		search_Bar.classList.add("hide");
 	}
@@ -181,3 +220,4 @@ function hideElement(){
 		root.classList.add("show");
 	}
 }
+*/
