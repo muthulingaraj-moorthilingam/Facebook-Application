@@ -1,8 +1,4 @@
 
-
-
-
-
 var logo = document.getElementById('logo');
 var input_focus = document.getElementById("input");
 var search_box = document.getElementById("search-box");
@@ -148,7 +144,7 @@ function show_more(){
 	var changeContent = document.getElementById("see-more-content");
 	var arrow = document.getElementById("see-more-a");
 	var hide_content = document.getElementById("hide-content");
-	if(!arrow.classList.contains("rotate")){
+	/*if(!arrow.classList.contains("rotate")){
 		if(hide_content.classList.contains("hide")){
 			hide_content.classList.remove("hide");
 			hide_content.classList.add("show");
@@ -161,7 +157,7 @@ function show_more(){
 		hide_content.classList.add("hide");
 		arrow.classList.remove("rotate");
 		changeContent.innerHTML = "See More";
-	}
+	}*/
 }
 
 /*var showHomePage = document.getElementById("cross-arrow");

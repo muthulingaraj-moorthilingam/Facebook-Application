@@ -282,13 +282,13 @@ input::placeholder{
 	list-style: none;
 	margin:0;
 	display: flex;
-	margin-left: 10px
+	margin-left: 10px;
+	position: relative;
 }
 .p-e-s-li{
 	margin-right: 8px;
 	padding: 10px 0px;
 	cursor: pointer;
-	position: relative;
 }
 .menu-div{
 	width: 40px;
@@ -372,7 +372,7 @@ input::placeholder{
 .align-list{
 	position: absolute;
     top: 55px;
-    right: -146px;
+    right: -1px;
     border-radius: 6px;
     background: #fff;
     box-shadow: 0px 0px 5px 0px rgba(158,153,158,1);
@@ -706,6 +706,10 @@ input::placeholder{
     border-radius: 50%;
     cursor:pointer;
     margin-right: 8px;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    display: inline-block;
 }
 .parent-story{
 	width: 360px;

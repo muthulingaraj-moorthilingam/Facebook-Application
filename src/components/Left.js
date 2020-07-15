@@ -31,34 +31,21 @@ export default Left;
 export class List extends React.Component{
 	constructor(){
 		super();
-		this.state={}
+		this.state={
+			more:"See More",
+			rotate:null
+		}
 	}
+
+	onclick =()=>{
+		this.setState({
+			more:this.state.more === "See More" ? "See Less" : "See More",
+			rotate :this.state.rotate === null ? "rotate" : null
+		});
+	}
+
 	render(){
-		const listOfimg = [
-		{
-			"src":"./Images/FB-Covid.png",
-			"content":"COVID-19 Information Center."
-		},
-		{
-			"src":"./Images/FB-Frd.png",
-			"content":"Friends"
-		},
-		{
-			"src":"./Images/FB-Msg.png",
-			"content":"Messenger"
-		},
-		{
-			"src":"./Images/FB-Page.png",
-			"content":"Pages"
-		},
-		{
-			"src":"./Images/FB-Market.png",
-			"content":"Marketplace"
-		},
-		{
-			"src":"./Images/FB-Vedio.png",
-			"content":"Vedio"
-		},
+		const moreList =[
 		{
 			"src":"./Images/FB-Event.png",
 			"content":"Events"
@@ -108,6 +95,32 @@ export class List extends React.Component{
 			"content":"Live video"
 		}
 		];
+		const listOfimg = [
+		{
+			"src":"./Images/FB-Covid.png",
+			"content":"COVID-19 Information Center."
+		},
+		{
+			"src":"./Images/FB-Frd.png",
+			"content":"Friends"
+		},
+		{
+			"src":"./Images/FB-Msg.png",
+			"content":"Messenger"
+		},
+		{
+			"src":"./Images/FB-Page.png",
+			"content":"Pages"
+		},
+		{
+			"src":"./Images/FB-Market.png",
+			"content":"Marketplace"
+		},
+		{
+			"src":"./Images/FB-Vedio.png",
+			"content":"Vedio"
+		}
+		];
 		const listItem = listOfimg.map((img,i) =>
 			<div className="p-a-left" key={img.content} >
             	<div className="user-details-lest">
@@ -123,6 +136,19 @@ export class List extends React.Component{
 		return(
 			<div className="parent-div-left-main">
                 {listItem}
+                {
+                	this.state.more === "See Less" && <Moreopt list={moreList}/>
+                }
+                <div className="p-a-left" onClick ={this.onclick} > 
+                  <div className="user-details-lest">
+                  <a href="# " id="see-more" className="user-left-a">
+                    <div className={this.state.rotate+" less-more-arrow"} id="see-more-a"></div>
+                    <div className="user-menu-name-part" id="see-more-content">
+                     {this.state.more}
+                    </div>
+                  </a>
+                </div>
+                </div>
              </div>
 		);
 	}
@@ -148,14 +174,41 @@ export class More extends React.Component{
 	}
 }
 
-/*<div className="p-a-left">
-            <div className="user-details-lest">
-                <a href="#COVID-19" id="user-left" className="user-left-a">
-                    <img className="img-info" src="./Images/FB-Covid.png" alt="covid-19" />
-                    <div className="user-menu-name-part">
-                      	{"COVID-19 Information Center."}
-                    </div>
-                 </a>
+export class Moreopt extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={};
+	}
+	render(){
+		const listItem = this.props.list.map((img,i) =>
+			<div className="p-a-left" key={img.content} >
+            	<div className="user-details-lest">
+                	<a href="#COVID-19" id="user-left" className="user-left-a">
+                    	<img className="img-info" src={img.src} alt="covid-19" />
+                    	<div className="user-menu-name-part">
+                      		{img.content}
+                    	</div>
+                 	</a>
+            	</div>
+         	</div>
+		);
+		return(
+			<div className="parent-div-left-main">
+                {listItem}
             </div>
-         </div>
-         */
+		);
+	}
+}
+
+/*
+<div className="p-a-left">
+      <div className="user-details-lest">
+        <a href="#COVID-19" id="user-left" className="user-left-a">
+            <img className="img-info" src="./Images/FB-Covid.png" alt="covid-19" />
+            <div className="user-menu-name-part">
+                 {"COVID-19 Information Center."}
+            </div>
+        </a>
+    </div>
+</div>
+*/

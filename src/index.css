@@ -35,9 +35,9 @@ code {
 	background-color: #e4e6e9;
 }
 .story-block-a-div{
-	background-image: url(/Images/FB-D-u1.png);
+	/*background-image: url(/Images/FB-D-u1.png);*/
     width: 112px;
-    height: 128px;
+    height: 198px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-repeat: no-repeat;
@@ -47,6 +47,10 @@ code {
 .story-block-a:hover .story-block-a-div{
     background-size: 120px;
     transition: 0.5s;
+}
+.user-sty-login{
+	width: 112px;
+	height: 128px;
 }
 .plus-story{
 	border-bottom-left-radius: 10px;
@@ -61,6 +65,9 @@ code {
     line-height: 19px;
     color: #000;
 }
+.top{
+	top: 146px;
+}
 .outter-plus{
 	width: 40px;
     height: 40px;
@@ -68,11 +75,11 @@ code {
     position: absolute;
     border-radius: 50%;
     text-align: center;
-    top: -21px;
+    top: 106px;
     left: 34px;
 }
 .user-outer-plue{
-	top: -116px;
+	top: 12px;
 	left: 13px;
 	background-color: #176ADA;
 }
@@ -122,4 +129,7 @@ code {
 }
 .show-create-srory{
 	display: block;
+}
+.parnt-sty-root-child{
+	display: flex;
 }

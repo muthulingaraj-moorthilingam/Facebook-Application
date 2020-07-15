@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 //import Createstory from "./Createstory";
-import Left from "./Left";
+import Left from "./components/Left";
+import Feed from "./components/Feed";
+import Story from "./components/Story";
 import './index.css';
 
 
@@ -9,15 +11,69 @@ class Garage extends React.Component{
 	constructor(){
 		super();
 		this.state={
-			story:[]
+			story:[],
+			defaultText:"",
+			showStory : true,
+			hideFeed: true,
+			createStory:false,
+			hide:"flex"
 		}
+	}
+	childToparent = (val) =>{
+		
+		this.setState({
+			showStory : !this.state.showStory,
+			hideFeed : !this.state.hideFeed,
+			hide: this.state.hide === "flex" ? "none" : "flex",
+			createStory: !this.state.createStory,
+			defaultText:val
+
+		});
+		hideElement();
+	}
+	storyTofeed =(value)=>{
+		this.childToparent(value);
 	}
 	render(){
 		return(
-			<section className="center-part-main-page">
-				<div id="react-part-main-app" className="react-part-main-app">
-					<div id="left-side-main-page" >
-						<Left />
+			<section className="center-part-main-page" >
+				<div id="react-part-main-app" className="react-part-main-app" style={{display:this.state.hide}}>
+					{
+						this.state.showStory 
+
+								&& 
+
+						<div id="left-side-main-page" >
+							<Left />
+						</div>
+					}
+					{
+						this.state.hideFeed
+								&&
+						<div id="center-main-page-app">
+           				<div className="inner-center">
+              				<section id="story-part">
+                				<div className="story-div-part">
+                  					<div className="story-block">
+                    					<div id="root">
+                    						<Feed childToparent={this.childToparent} text={this.state.defaultText} />
+                    					</div>
+                  					</div>
+                				</div>
+              				</section>
+            			</div>
+          			</div>
+					}
+          			<div id="right-side-main-page"></div>
+				</div>
+				<div className="create-user-story">
+					<div id="createe-user-story-root">
+						{
+							this.state.createStory 
+									&& 
+
+								<Story childToparent={this.childToparent} storyTofeed={this.storyTofeed}/>
+						}
 					</div>
 				</div>
 			</section>
@@ -32,6 +88,124 @@ ReactDOM.render(
 
 export default Garage;
 
+
+
+function hideElement(){
+	var main_page = document.getElementById("main-page");
+	var parent = document.getElementById("parent")
+	var nav_Bar = document.getElementById("nav-center");
+	var user_Left_side = document.getElementById("left-side-user");
+	var  messenger_Icon = document.getElementById("messenger-icon");
+	var search_Bar = document.getElementById("search-box");
+	var logo = document.getElementById("logo");
+	var right_logo = document.getElementById("right-logo");
+
+	if(!right_logo.classList.contains("r-hide")){
+		right_logo.classList.add("r-hide");
+	}
+	else if(right_logo.classList.contains("r-hide")){
+		right_logo.classList.remove("r-hide");
+	}
+
+	if(!logo.classList.contains("logo-1")){
+		logo.classList.add("logo-1");
+	}
+	else if(logo.classList.contains("logo-1")){
+		logo.classList.remove("logo-1");
+	}
+
+	if(!main_page.classList.contains("pad-top")){
+		main_page.classList.add("pad-top");
+	}
+	else if(main_page.classList.contains("pad-top")){
+		main_page.classList.remove("pad-top");
+	}
+
+	if(!parent.classList.contains("parent-story")){
+		parent.classList.add("parent-story");
+	}
+	else if(parent.classList.contains("parent-story")){
+		parent.classList.remove("parent-story")
+	}
+
+	if(!search_Bar.classList.contains("hide") ){
+		search_Bar.classList.add("hide");
+	}
+	else{
+		search_Bar.classList.remove("hide");
+		search_Bar.classList.add("show");
+	}
+
+	if(nav_Bar.classList.contains("show-flex")){
+		nav_Bar.classList.remove("show-flex");
+		nav_Bar.classList.add("hide-flex");
+	}
+	else if(nav_Bar.classList.contains("hide-flex")){
+		nav_Bar.classList.remove("hide-flex");
+		nav_Bar.classList.add("show-flex");
+	}
+	if(!messenger_Icon.classList.contains("hide")){
+		messenger_Icon.classList.add("hide");
+	}
+	else if(messenger_Icon.classList.contains("hide")){
+		messenger_Icon.classList.remove("hide");
+	}
+	user_Left_side.classList.add("hide");
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+	var cross_Icon = document.getElementById("cross-arrow");
+	var left_section = document.getElementById("hide_left_side");
+	var root = document.getElementById("root-create");
+	if(messenger_Icon.classList.contains("show")){
+		messenger_Icon.classList.remove("show");
+		messenger_Icon.classList.add("hide");
+	}
+
+	if(!root.classList.contains("hide")){
+		root.classList.add("show");
+	}
+	else{
+		root.classList.remove("hide");
+		root.classList.add("show");
+	}
+	if(left_section.classList.contains("show")){
+		left_section.classList.remove("show");
+		left_section.classList.add("hide");
+	}
+	if(cross_Icon.classList.contains("hide")){
+		cross_Icon.classList.remove("hide");
+		cross_Icon.classList.add("show");
+	}*/
 
 /*
 class Garage extends React.Component{
@@ -159,65 +333,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-
-function hideElement(){
-	var main_page = document.getElementById("main-page");
-	var parent = document.getElementById("parent")
-	//var cross_Icon = document.getElementById("cross-arrow");
-	var nav_Bar = document.getElementById("nav-center");
-	var user_Left_side = document.getElementById("left-side-user");
-	var  messenger_Icon = document.getElementById("messenger-icon");
-	var search_Bar = document.getElementById("search-box");
-	var left_section = document.getElementById("hide_left_side");
-	var root = document.getElementById("root-create");
-	var logo = document.getElementById("logo");
-	var right_logo = document.getElementById("right-logo");
-
-	if(!right_logo.classList.contains("r-hide")){
-		right_logo.classList.add("r-hide");
-	}
-
-	if(!logo.classList.contains("logo-1")){
-		logo.classList.add("logo-1");
-	}
-
-	if(!main_page.classList.contains("pad-top")){
-		main_page.classList.add("pad-top");
-	}
-
-	/*if(cross_Icon.classList.contains("hide")){
-		cross_Icon.classList.remove("hide");
-		cross_Icon.classList.add("show");
-	}*/
-	/*parent.classList.add("parent-story");
-	if(!search_Bar.classList.contains("hide") ){
-		search_Bar.classList.add("hide");
-	}
-	else{
-		search_Bar.classList.remove("hide");
-		search_Bar.classList.add("show");
-	}
-	if(nav_Bar.classList.contains("show-flex")){
-		nav_Bar.classList.remove("show-flex");
-		nav_Bar.classList.add("hide-flex");
-	}
-	messenger_Icon.classList.add("hide");
-	user_Left_side.classList.add("hide");
-
-	if(left_section.classList.contains("show")){
-		left_section.classList.remove("show");
-		left_section.classList.add("hide");
-	}
-	if(messenger_Icon.classList.contains("show")){
-		messenger_Icon.classList.remove("show");
-		messenger_Icon.classList.add("hide");
-	}
-	if(!root.classList.contains("hide")){
-		root.classList.add("show");
-	}
-	else{
-		root.classList.remove("hide");
-		root.classList.add("show");
-	}
-}
 */
