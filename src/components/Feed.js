@@ -8,9 +8,11 @@ class Feed extends React.Component{
 			userBg:"/Images/FB-D-u1.png",
 			userText:null,
 			userFont:null,
+			useStyle:null,
 			plus:"/Images/FB-plus.png",
 			items:[],
-			frdusr:[]
+			frdusr:[],
+			
 		};
 	}
 	onclick = (event)=>{
@@ -20,8 +22,6 @@ class Feed extends React.Component{
 
 		this.props.childToparent();
 	}
-
-	
 
 	componentDidMount(){
 		fetch("https://testapi.io/api/Muthuraj/facebook/user/stories")
@@ -56,19 +56,20 @@ class Feed extends React.Component{
 			<div className="parnt-sty-root-child">
 				<div className="div-block-story">
 					<a href="# " className ="story-block-a" onClick={this.onclick}>
-						<div className="story-block-a-div">
-							<div >
-								<img src={this.state.userBg} alt=" " className="user-sty-login" />
-							</div>
-							<div className="outter-plus">
-								<div className="img-bg">
-									<img src={this.state.plus} alt= "" style={{filter:"invert(1)"}}/>
+							<div className="story-block-a-div">
+								<div >
+									<img src={this.state.userBg} alt=" " className="user-sty-login" />
 								</div>
-							</div>
-							<div className ="plus-story">
-								{this.props.text}
+								<div className="outter-plus">
+									<div className="img-bg">
+										<img src={this.state.plus} alt= "" style={{filter:"invert(1)"}}/>
+									</div>
+								</div>
+								<div className ="plus-story">
+								{ this.props.text || this.state.defaultText }
 							</div>
 						</div>
+						
 					</a>
 				</div>
 				{render}

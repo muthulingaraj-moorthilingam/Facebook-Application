@@ -16,25 +16,39 @@ class Garage extends React.Component{
 			showStory : true,
 			hideFeed: true,
 			createStory:false,
-			hide:"flex"
+			hide:"flex",
+			uimg:"/Images/FB-D-u1.png"
 		}
 	}
-	childToparent = (val) =>{
+	childToparent = (val,style) =>{
 		
 		this.setState({
 			showStory : !this.state.showStory,
 			hideFeed : !this.state.hideFeed,
 			hide: this.state.hide === "flex" ? "none" : "flex",
 			createStory: !this.state.createStory,
-			defaultText:val
+			defaultText:val,
+			defaulyStyle:style,
+			default:{	
+					name:"CLEAN",
+					style:{
+						fontFamily:'Abel',
+						fontSize:'15px',
+						fontWeight:'700'
+					}
+				}
+			
 
 		});
 		hideElement();
 	}
-	storyTofeed =(value)=>{
-		this.childToparent(value);
+	storyTofeed =(value,style)=>{
+
+		this.childToparent(value,style);
+
 	}
 	render(){
+
 		return(
 			<section className="center-part-main-page" >
 				<div id="react-part-main-app" className="react-part-main-app" style={{display:this.state.hide}}>
@@ -72,7 +86,7 @@ class Garage extends React.Component{
 							this.state.createStory 
 									&& 
 
-								<Story childToparent={this.childToparent} storyTofeed={this.storyTofeed}/>
+								<Story childToparent={this.childToparent} storyTofeed={this.storyTofeed} img={this.state.uimg} default={this.state.default} defaulyStyle={this.state.defaulyStyle} />
 						}
 					</div>
 				</div>
