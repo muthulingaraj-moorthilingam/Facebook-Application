@@ -11,7 +11,11 @@ class Story extends React.Component{
 			typingdata:"",
 			style:this.props.default.style,
 			text:"",
-			styleu:null
+			styleu:null,
+			showTextArea:null,
+			postingArea:null,
+			displayHide:"block",
+			backGrounfimage:"/Images/StoryBgimg/FB-Default-bg.jpg"
 		};
 	}
 	on = () =>{
@@ -32,6 +36,21 @@ class Story extends React.Component{
 			styleu:style
 		});
 	}
+
+	addBgimage =(bgImg)=>{
+		this.setState({
+			backGrounfimage:bgImg
+		});
+	}
+
+	showTextarea = () =>{
+		this.setState({
+			showTextArea: !this.state.showTextArea,
+			postingArea: !this.state.postingArea,
+			displayHide:this.state.displayHide === "block" ? "none" : "block"
+		});
+	}
+
 	render(){
 		const img ="./story-logos/FB-D-u1.png";
 		return(
@@ -62,16 +81,62 @@ class Story extends React.Component{
 								</div>
 							</div>
 							<hr style={{margin:"20px 0px 0px 0px"}} />
-							<div className="text-parent">
-								<Textarea childToparentData={this.childToparentData}  />
-							</div>
-							<div className="font-list">
-								<Ul default={this.props.default} addStyle={this.addStyle} />
-							</div>
+							{
+								this.state.showTextArea
+										&&
+									<div>
+										<div className="text-parent">
+											<Textarea childToparentData={this.childToparentData}  />
+										</div>
+										<div className="font-list">
+											<Ul default={this.props.default} addStyle={this.addStyle} />
+										</div>
+										<div>
+											<Background addBgimage={this.addBgimage} />
+										</div>
+									</div>
+							}
 						</div>
 					</div>
-					<div style={this.state.style}>
-						{this.state.typingdata}
+					<div className="story-right-sife-frame" >
+						{/*this.state.typingdata style={this.state.style}*/}
+						<div className ="add-div-type" style={{display:this.state.displayHide}}>
+							<div>
+								<div className="right-side-parent">
+									<div className="inner-right">
+										<div className="right-flex">
+											<div className="create-story-type">
+												<div className="add-SPS add-Photo">
+													<div className="position">
+														<div className="add-poto-story photo"></div>
+														<div className="add-poto-story-name">
+															{"Add photo"}
+														</div>
+													</div>
+												</div>
+												<div className="add-SPS add-Story" onClick={this.showTextarea}>
+													<div className="position">
+														<div className="add-poto-story story">
+															<div className="bg"></div>
+														</div>
+														<div className="add-poto-story-name">
+															{"Add Text story"}
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							{
+								this.state.postingArea
+										&&
+								<Posting value={this.state.typingdata} style={this.state.style} background={this.state.backGrounfimage}/>
+							}
+						</div>
 					</div>
 				</div>
 				
@@ -90,6 +155,94 @@ export class Cross extends React.Component{
 	render(){
 		return(
 			<div className="cross-icon">
+			</div>
+		);
+	}
+}
+
+export class Background extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={
+			bgImg:[
+				"/Images/StoryBgimg/FB-Sty-bg.jpg","/Images/StoryBgimg/FB-Sty-bg1.jpg",
+				"/Images/StoryBgimg/FB-sty-bg2.jpg","/Images/StoryBgimg/FB-Sty-bg3.jpg","/Images/StoryBgimg/FB-Sty-bg4.jpg",
+				"/Images/StoryBgimg/FB-Sty-bg5.jpg","/Images/StoryBgimg/FB-Sty-bg6.jpg","/Images/StoryBgimg/FB-Sty-bg-7.jpg",
+				"/Images/StoryBgimg/FB-Sty-bg-8.jpg","/Images/StoryBgimg/FB-Sty-bg-9.jpg","/Images/StoryBgimg/FB-Sty-bg-10.jpg",
+				"/Images/StoryBgimg/Fb-Sty-bg-11.jpg","/Images/StoryBgimg/FB-Sty-bg-12.jpg","/Images/StoryBgimg/FB-Sty-bg-13.jpg",
+				"/Images/StoryBgimg/FB-Sty-bg-14.jpg","/Images/StoryBgimg/FB-Sty-bg-15.jpg","/Images/StoryBgimg/FB-Sty-bg-16.jpg",
+				"/Images/StoryBgimg/FB-Sty-bg-17.jpg","/Images/StoryBgimg/FB-Sty-bg-18.jpg","/Images/StoryBgimg/FB-Sty-bg-19.jpg",
+				"/Images/StoryBgimg/FB-Sty-bg-20.jpg","/Images/StoryBgimg/FB-Sty-bg-21.jpg","/Images/StoryBgimg/FB-Sty-bg-22.jpg"
+			]
+		};
+	}
+	setImgbg = (bgImg) =>{
+		this.props.addBgimage(bgImg);
+	} 
+	render(){
+		return(
+			<div className="bg-parent">
+				<div className="bg-heading">
+					{"Backgrounds"}
+				</div>
+				<div className="imgBg">
+					{
+						this.state.bgImg.map((img,i) =>
+							<Image setImage={this.setImgbg} 
+								key={i.toString()}
+								img={img}
+							/>
+						)
+					}
+				</div>
+			</div>
+		);
+	}
+}
+
+export class Image extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={};
+	}
+	changeBg =() =>{
+		this.props.setImage(this.props.img);
+	}
+	render(){
+		return(
+			<div className="img-div" onClick={this.changeBg}>
+				<div className="img-in-div">
+					<img src={this.props.img} className="img-bgimg" alt="" />
+				</div>
+			</div>
+		);
+	}
+} 
+
+export class Posting extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={}
+	}
+	render(){
+		return(
+			<div className ="style-post" id="show-post">
+				<div className="pad-post-div">
+					<div className="heading-div">
+						<div className="heading-in-div">{"Preview"}</div>
+					</div>
+					<div className="inner-post-div">
+						<div className="inner-block-post">
+							<div className="frame-part" >
+								<div className="bind-text"  style={{backgroundImage:"url("+this.props.background+")"}}>
+									<div style={this.props.style}>
+										{this.props.value}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}

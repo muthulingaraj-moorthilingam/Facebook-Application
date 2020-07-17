@@ -724,3 +724,6 @@ input::placeholder{
 .r-hide{
 	display: none;
 }
+#createe-user-story-root{
+	overflow: hidden;
+}

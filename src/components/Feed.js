@@ -5,6 +5,7 @@ class Feed extends React.Component{
 		super(props);
 		this.state={
 			defaultText:"Create a story",
+			defaultStyle:null,
 			userBg:"/Images/FB-D-u1.png",
 			userText:null,
 			userFont:null,
@@ -35,6 +36,7 @@ class Feed extends React.Component{
 	}
 
 	render(){
+		console.log(this.props.style)
 
 		const render = this.state.items.map((items)=>
 			<div className="div-block-story" key ={items.userId} >
@@ -56,20 +58,30 @@ class Feed extends React.Component{
 			<div className="parnt-sty-root-child">
 				<div className="div-block-story">
 					<a href="# " className ="story-block-a" onClick={this.onclick}>
-							<div className="story-block-a-div">
-								<div >
-									<img src={this.state.userBg} alt=" " className="user-sty-login" />
-								</div>
-								<div className="outter-plus">
-									<div className="img-bg">
-										<img src={this.state.plus} alt= "" style={{filter:"invert(1)"}}/>
+						<div className="story-block-a-div" >
+							{
+								this.props.style 
+										?
+										<div style={this.props.style}>
+										{this.props.text}
 									</div>
-								</div>
-								<div className ="plus-story">
-								{ this.props.text || this.state.defaultText }
-							</div>
+									:
+									
+									<div>
+										<div >
+										<img src={this.state.userBg} alt=" " className="user-sty-login" />
+									</div>
+									<div className="outter-plus">
+										<div className="img-bg">
+											<img src={this.state.plus} alt= "" style={{filter:"invert(1)"}}/>
+										</div>
+									</div>
+									<div className ="plus-story" style={this.props.style}>
+										{ this.props.text || this.state.defaultText }
+									</div>
+									</div>
+							}		
 						</div>
-						
 					</a>
 				</div>
 				{render}

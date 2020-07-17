@@ -12,12 +12,15 @@ class Garage extends React.Component{
 		super();
 		this.state={
 			story:[],
-			defaultText:"",
+			defaultText:"Create story",
+			defaultStyle:null,
 			showStory : true,
 			hideFeed: true,
 			createStory:false,
 			hide:"flex",
-			uimg:"/Images/FB-D-u1.png"
+			uimg:"/Images/FB-D-u1.png",
+			open:null
+
 		}
 	}
 	childToparent = (val,style) =>{
@@ -28,7 +31,7 @@ class Garage extends React.Component{
 			hide: this.state.hide === "flex" ? "none" : "flex",
 			createStory: !this.state.createStory,
 			defaultText:val,
-			defaulyStyle:style,
+			defaultStyle:style,
 			default:{	
 					name:"CLEAN",
 					style:{
@@ -36,14 +39,16 @@ class Garage extends React.Component{
 						fontSize:'15px',
 						fontWeight:'700'
 					}
-				}
+				},
 			
 
 		});
 		hideElement();
 	}
 	storyTofeed =(value,style)=>{
-
+		this.setState({
+			open: !this.state.open 
+		});
 		this.childToparent(value,style);
 
 	}
@@ -70,7 +75,7 @@ class Garage extends React.Component{
                 				<div className="story-div-part">
                   					<div className="story-block">
                     					<div id="root">
-                    						<Feed childToparent={this.childToparent} text={this.state.defaultText} />
+                    						<Feed childToparent={this.childToparent} text={this.state.defaultText} style={this.state.defaultStyle} open={this.state.open} />
                     					</div>
                   					</div>
                 				</div>
