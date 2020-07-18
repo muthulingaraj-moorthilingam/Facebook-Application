@@ -14,6 +14,7 @@ class Garage extends React.Component{
 			story:[],
 			defaultText:"Create story",
 			defaultStyle:null,
+			defaultImg:null,
 			showStory : true,
 			hideFeed: true,
 			createStory:false,
@@ -23,7 +24,7 @@ class Garage extends React.Component{
 
 		}
 	}
-	childToparent = (val,style) =>{
+	childToparent = (val,style,img) =>{
 		
 		this.setState({
 			showStory : !this.state.showStory,
@@ -32,6 +33,7 @@ class Garage extends React.Component{
 			createStory: !this.state.createStory,
 			defaultText:val,
 			defaultStyle:style,
+			defaultImg:img,
 			default:{	
 					name:"CLEAN",
 					style:{
@@ -45,11 +47,11 @@ class Garage extends React.Component{
 		});
 		hideElement();
 	}
-	storyTofeed =(value,style)=>{
+	storyTofeed =(value,style,img)=>{
 		this.setState({
 			open: !this.state.open 
 		});
-		this.childToparent(value,style);
+		this.childToparent(value,style,img);
 
 	}
 	render(){
@@ -75,7 +77,7 @@ class Garage extends React.Component{
                 				<div className="story-div-part">
                   					<div className="story-block">
                     					<div id="root">
-                    						<Feed childToparent={this.childToparent} text={this.state.defaultText} style={this.state.defaultStyle} open={this.state.open} />
+                    						<Feed childToparent={this.childToparent} text={this.state.defaultText} style={this.state.defaultStyle} open={this.state.open} img={this.state.defaultImg} />
                     					</div>
                   					</div>
                 				</div>

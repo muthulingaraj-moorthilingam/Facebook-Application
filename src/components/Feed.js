@@ -62,8 +62,11 @@ class Feed extends React.Component{
 							{
 								this.props.style 
 										?
-										<div style={this.props.style}>
-										{this.props.text}
+									<div className="rel">
+										<img src={this.props.img} alt="" className="sty-img-style"/>
+											<div className="ab-st-feed" style={this.props.style}>
+												{this.props.text}
+											</div>
 									</div>
 									:
 									

@@ -15,14 +15,18 @@ class Story extends React.Component{
 			showTextArea:null,
 			postingArea:null,
 			displayHide:"block",
-			backGrounfimage:"/Images/StoryBgimg/FB-Default-bg.jpg"
+			backGrounfimage:"/Images/StoryBgimg/FB-Default-bg.jpg",
+			sh:null
 		};
 	}
-	on = () =>{
+	shareStory = () =>{
 		//var ip=document.getElementById('ip');
 		//var value = "noe default" /*ip.value;*/
 		//this.props.childToparent(value);
-		this.props.childToparent(this.state.text,this.state.styleu);
+		this.props.childToparent(this.state.text,this.state.styleu,this.state.backGrounfimage);
+	}
+	exitStory =() =>{
+		this.props.childToparent();
 	}
 	childToparentData = (data) =>{
 		this.setState({
@@ -47,7 +51,8 @@ class Story extends React.Component{
 		this.setState({
 			showTextArea: !this.state.showTextArea,
 			postingArea: !this.state.postingArea,
-			displayHide:this.state.displayHide === "block" ? "none" : "block"
+			displayHide:this.state.displayHide === "block" ? "none" : "block",
+			sh:!this.state.sh
 		});
 	}
 
@@ -58,7 +63,7 @@ class Story extends React.Component{
 				<div className="parent-div-ur-cr-sto">
 					<div className="left-side-create-u-s">
 						<div className="inner-left">
-							<div className="cross-icon-div" onClick={this.on}>
+							<div className="cross-icon-div" onClick={this.exitStory}>
 								<Cross />
 							</div>
 						</div>
@@ -73,7 +78,7 @@ class Story extends React.Component{
 								</div>
 							</div>
 						</div>
-						<div className="input-user-story-left">
+						<div className="input-user-story-left" >
 							<div className ="user-details-story">
 								<div className="in-user-d">
 									<img className="crt-user" src ={this.props.img} alt="" />
@@ -95,6 +100,16 @@ class Story extends React.Component{
 											<Background addBgimage={this.addBgimage} />
 										</div>
 									</div>
+							}
+						</div>
+						<div className="button-div">
+							{
+								this.state.sh
+									&&
+								<div className="inner-div-btn">
+									<button className="btn-button" onClick={this.exitStory}>{"Discard"}</button>
+									<button className="btn-button blu-btn" onClick={this.shareStory}>{"Share to Story"}</button>
+								</div>
 							}
 						</div>
 					</div>
@@ -134,7 +149,7 @@ class Story extends React.Component{
 							{
 								this.state.postingArea
 										&&
-								<Posting value={this.state.typingdata} style={this.state.style} background={this.state.backGrounfimage}/>
+								<Posting value={this.state.typingdata} style={this.state.style.fontFamily} background={this.state.backGrounfimage}/>
 							}
 						</div>
 					</div>
@@ -235,7 +250,7 @@ export class Posting extends React.Component{
 						<div className="inner-block-post">
 							<div className="frame-part" >
 								<div className="bind-text"  style={{backgroundImage:"url("+this.props.background+")"}}>
-									<div style={this.props.style}>
+									<div style={{fontFamily:this.props.style}} className="t-area-div">
 										{this.props.value}
 									</div>
 								</div>
@@ -285,7 +300,6 @@ export class Ul extends React.Component{
 					style:{
 						fontFamily:'Abel',
 						fontSize:'15px',
-						fontWeight:'700'
 					}
 				},
 				{
@@ -306,6 +320,48 @@ export class Ul extends React.Component{
 					name:"Fancy",
 					style:{
 						fontFamily:'Audiowide',
+						fontSize:'15px'
+					}
+				},
+				{
+					name:"Akronim",
+					style:{
+						fontFamily:'Akronim',
+						fontSize:'15px'
+					}
+				},
+				{
+					name:"Allura",
+					style:{
+						fontFamily:'Allura',
+						fontSize:'15px'
+					}
+				},
+				{
+					name:"Annie",
+					style:{
+						fontFamily:'Annie Use Your Telescope',
+						fontSize:'15px'
+					}
+				},
+				{
+					name:"Bungee Shade",
+					style:{
+						fontFamily:'Bungee Shade',
+						fontSize:'15px'
+					}
+				},
+				{
+					name:"Butcherman",
+					style:{
+						fontFamily:'Butcherman',
+						fontSize:'15px'
+					}
+				},
+				{
+					name:"Geostar",
+					style:{
+						fontFamily:'Geostar',
 						fontSize:'15px'
 					}
 				}
