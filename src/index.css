@@ -42,11 +42,15 @@ code {
     border-top-right-radius: 10px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 110px;
+    background-size: cover;
+    border-radius: 8px;
 }
 .story-block-a:hover .story-block-a-div{
-    background-size: 120px;
-    transition: 0.5s;
+    transition: 0.8s;
+    background-size: 300px;
+    background-position-x: 0px;
+    background-position-y: 0px;
+
 }
 .user-sty-login{
 	width: 112px;

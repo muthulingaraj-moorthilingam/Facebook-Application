@@ -20,8 +20,8 @@ class Garage extends React.Component{
 			createStory:false,
 			hide:"flex",
 			uimg:"/Images/FB-D-u1.png",
-			open:null
-
+			open:null,
+			story_Done:null
 		}
 	}
 	childToparent = (val,style,img) =>{
@@ -42,7 +42,7 @@ class Garage extends React.Component{
 						fontWeight:'700'
 					}
 				},
-			
+			story_Done:!this.state.story_Done
 
 		});
 		hideElement();
@@ -77,7 +77,7 @@ class Garage extends React.Component{
                 				<div className="story-div-part">
                   					<div className="story-block">
                     					<div id="root">
-                    						<Feed childToparent={this.childToparent} text={this.state.defaultText} style={this.state.defaultStyle} open={this.state.open} img={this.state.defaultImg} />
+                    						<Feed childToparent={this.childToparent} text={this.state.defaultText} style={this.state.defaultStyle} open={this.state.open} img={this.state.defaultImg} storyDone={this.state.story_Done} />
                     					</div>
                   					</div>
                 				</div>
