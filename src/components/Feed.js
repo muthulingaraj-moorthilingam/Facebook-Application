@@ -24,21 +24,12 @@ class Feed extends React.Component{
 		this.props.childToparent();
 	}
 
-	componentDidMount(){
-		fetch("https://testapi.io/api/Muthuraj/facebook/user/stories")
-			.then(res => res.json())
-			.then( (data) =>{
-				this.setState({
-					items:data
-				});
-				//console.log(this.state.items);
-		});
-	}
+	
 
 	render(){
-		console.log(this.props.style)
+		console.log(this.props.storyDone)
 
-		const render = this.state.items.map((items)=>
+		const render = this.props.dataApi.map((items)=>
 			<div className="div-block-story" key ={items.userId} >
 				<a href="#stories" className ="story-block-a" >
 					<div className="story-block-a-div" style={{backgroundImage:"url("+items.bgImg+")"}}>
@@ -59,34 +50,38 @@ class Feed extends React.Component{
 				<div className="div-block-story">
 					<a href="# " className ="story-block-a" onClick={this.onclick}>
 						<div className="story-block-a-div" >
-							{
-								this.props.style 
-										?
-									<div className="rel">
-										<img src={this.props.img} alt="" className="sty-img-style"/>
-											<div className="ab-st-feed" style={this.props.style}>
-												{this.props.text}
-											</div>
+							<div>
+								<div >
+									<img src={this.state.userBg} alt=" " className="user-sty-login" />
+								</div>
+								<div className="outter-plus">
+									<div className="img-bg">
+										<img src={this.state.plus} alt= "" style={{filter:"invert(1)"}}/>
 									</div>
-									:
-									
-									<div>
-										<div >
-										<img src={this.state.userBg} alt=" " className="user-sty-login" />
-									</div>
-									<div className="outter-plus">
-										<div className="img-bg">
-											<img src={this.state.plus} alt= "" style={{filter:"invert(1)"}}/>
-										</div>
-									</div>
-									<div className ="plus-story" style={this.props.style}>
-										{ this.props.text || this.state.defaultText }
-									</div>
-									</div>
-							}		
+								</div>
+								<div className ="plus-story">
+									{ this.state.defaultText }
+								</div>
+							</div>
 						</div>
 					</a>
 				</div>
+				{
+					this.props.storyDone
+							&&
+					<div className="div-block-story" >
+						<a href="#stories" className ="story-block-a" >
+							<div className="story-block-a-div">
+								<div className="rel">
+									<img src={this.props.img} alt="" className="sty-img-style"/>
+									<div className="ab-st-feed" style={this.props.style}>
+										{this.props.text}
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>	
+				}
 				{render}
 			</div>
 		);
@@ -120,3 +115,29 @@ export class Frduser extends React.Component{
 }
 */
 export default Feed;
+
+/*
+this.props.storyDone
+										?
+									<div className="rel">
+										<img src={this.props.img} alt="" className="sty-img-style"/>
+											<div className="ab-st-feed" style={this.props.style}>
+												{this.props.text}
+											</div>
+									</div>
+									:
+									
+									<div>
+										<div >
+										<img src={this.state.userBg} alt=" " className="user-sty-login" />
+									</div>
+									<div className="outter-plus">
+										<div className="img-bg">
+											<img src={this.state.plus} alt= "" style={{filter:"invert(1)"}}/>
+										</div>
+									</div>
+									<div className ="plus-story" style={this.props.style}>
+										{ this.props.text || this.state.defaultText }
+									</div>
+									</div>
+									*/

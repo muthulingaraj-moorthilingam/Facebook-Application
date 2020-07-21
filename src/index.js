@@ -21,19 +21,19 @@ class Garage extends React.Component{
 			hide:"flex",
 			uimg:"/Images/FB-D-u1.png",
 			open:null,
-			story_Done:null
+			story_Done:null,
+			items:[],
+			default:{},
+			tempItems:[]
 		}
 	}
-	childToparent = (val,style,img) =>{
+	childToparent = () =>{
 		
 		this.setState({
 			showStory : !this.state.showStory,
 			hideFeed : !this.state.hideFeed,
 			hide: this.state.hide === "flex" ? "none" : "flex",
 			createStory: !this.state.createStory,
-			defaultText:val,
-			defaultStyle:style,
-			defaultImg:img,
 			default:{	
 					name:"CLEAN",
 					style:{
@@ -42,17 +42,38 @@ class Garage extends React.Component{
 						fontWeight:'700'
 					}
 				},
-			story_Done:!this.state.story_Done
-
+			
 		});
+		console.log(this.state.items)
 		hideElement();
 	}
-	storyTofeed =(value,style,img)=>{
+	/*storyTofeed =(value,style,img)=>{
 		this.setState({
-			open: !this.state.open 
+			open: !this.state.open,
 		});
 		this.childToparent(value,style,img);
+	}*/
+	upDateapi =(val,style,img) =>{
 
+		this.setState({
+			tempItems:this.state.items.slice(1),
+			defaultText:val,
+			defaultStyle:style,
+			defaultImg:img,
+			story_Done:!this.state.story_Done
+		});
+		this.childToparent();
+	}
+	componentDidMount(){
+		fetch("https://testapi.io/api/Muthuraj/facebook/user/stories")
+			.then(res => res.json())
+			.then( (data) =>{
+				this.setState({
+					items:data,
+					tempItems:data
+				});
+				//console.log(this.state.items);
+		});
 	}
 	render(){
 
@@ -77,7 +98,7 @@ class Garage extends React.Component{
                 				<div className="story-div-part">
                   					<div className="story-block">
                     					<div id="root">
-                    						<Feed childToparent={this.childToparent} text={this.state.defaultText} style={this.state.defaultStyle} open={this.state.open} img={this.state.defaultImg} storyDone={this.state.story_Done} />
+                    						<Feed childToparent={this.childToparent} text={this.state.defaultText} style={this.state.defaultStyle} open={this.state.open} img={this.state.defaultImg} storyDone={this.state.story_Done} dataApi={this.state.tempItems} />
                     					</div>
                   					</div>
                 				</div>
@@ -93,7 +114,7 @@ class Garage extends React.Component{
 							this.state.createStory 
 									&& 
 
-								<Story childToparent={this.childToparent} storyTofeed={this.storyTofeed} img={this.state.uimg} default={this.state.default} defaulyStyle={this.state.defaulyStyle} />
+								<Story upDateapi={this.upDateapi} storyTofeed={this.storyTofeed} img={this.state.uimg} default={this.state.default} defaulyStyle={this.state.defaulyStyle} childToparent={this.childToparent} />
 						}
 					</div>
 				</div>

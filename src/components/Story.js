@@ -23,7 +23,7 @@ class Story extends React.Component{
 		//var ip=document.getElementById('ip');
 		//var value = "noe default" /*ip.value;*/
 		//this.props.childToparent(value);
-		this.props.childToparent(this.state.text,this.state.styleu,this.state.backGrounfimage);
+		this.props.upDateapi(this.state.text,this.state.styleu,this.state.backGrounfimage);
 	}
 	exitStory =() =>{
 		this.props.childToparent();
