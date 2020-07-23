@@ -7,22 +7,24 @@ class Left extends React.Component{
 	}
 	render(){
 		return(
-			<section className="section-left-side" id="hide_left_side">
-				<div className="parent-div-left-main">
-                	<div className="p-a-left">
-                 	 	<div className="user-details-lest">
-                 			<a href="#profile" id="user-left" className="user-left-a">
-                    			<div className="user-img-part"></div>
-                    			<div className="user-name-part">
-                     				{"Muthulingaraj moorthilingam"}
-                    			</div>
-                  			</a>
+			<div style={{position:"fixed"}}>
+				<section className="section-left-side" id="hide_left_side">
+					<div className="parent-div-left-main">
+                		<div className="p-a-left">
+                 	 		<div className="user-details-lest">
+                 				<a href="#profile" id="user-left" className="user-left-a">
+                    				<div className="user-img-part"></div>
+                    				<div className="user-name-part">
+                     					{"Muthulingaraj moorthilingam"}
+                    				</div>
+                  				</a>
+                			</div>
                 		</div>
-                	</div>
-              	</div>
-              	<List />
-              	<More />
-			</section>
+              		</div>
+              		<List />
+              		<More />
+				</section>
+			</div>
 		);
 	}
 }
@@ -168,7 +170,7 @@ export class More extends React.Component{
                 <span className="more-span">{"Ad choices"}</span>
                 <span className="more-span">{"Cookies"}</span>
                 <span className="more-span">{"More"}</span>
-                <span className="more-span-cpy">{"Facebook &copy 2020"}</span>
+                <span className="more-span-cpy">Facebook{'\u00A9'}2020</span>
              </div>
 		);
 	}

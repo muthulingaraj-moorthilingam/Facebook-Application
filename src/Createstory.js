@@ -22,8 +22,7 @@ class Createstory extends React.Component{
 				//<Left attribute={attributes} />
 				//<Right />*/}
 				<Cross hide={this.state} />
-				<Left data={this.state} attribute={attributes} />
-				
+				<Left data={this.state} attribute = {attributes} />
 			</div>	
 		);
 	}

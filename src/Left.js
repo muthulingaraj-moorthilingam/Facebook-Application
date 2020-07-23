@@ -160,6 +160,7 @@ export class More extends React.Component{
 		this.state={}
 	}
 	render(){
+		
 		return(
 			<div className="more">
                 <span className="more-span">{"Privacy"}</span>
@@ -168,7 +169,7 @@ export class More extends React.Component{
                 <span className="more-span">{"Ad choices"}</span>
                 <span className="more-span">{"Cookies"}</span>
                 <span className="more-span">{"More"}</span>
-                <span className="more-span-cpy">{"Facebook &copy 2020"}</span>
+                <span className="more-span-cpy">{"Facebook  2020"}</span>
              </div>
 		);
 	}

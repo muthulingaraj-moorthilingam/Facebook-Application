@@ -1,0 +1,97 @@
+.create-post{
+	text-align: center;
+	display: flex;
+    justify-content: center;
+}
+.cr-post{
+	border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+    margin-bottom: 16px;
+}
+.pad-cr-post{
+	padding: 12px 16px 10px 16px;
+}
+.cr-post-flex{
+	display: flex;
+	flex-direction: column;
+}
+.search-user{
+	display: flex;
+}
+.a-cr-post{
+	display: block;
+	width: inherit;
+	height: inherit;
+}
+.user-cr-pic{
+	box-sizing: border-box;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	margin-right: 8px;
+}
+.img-cr-post{
+	width: 40px;
+	height: 40px;
+}
+.search-blk-post{
+	cursor: pointer;
+    box-sizing: content-box;
+    width: 396px;
+    padding: 0px 12px;
+    line-height: 40px;
+    background: rgb(240, 242, 245);
+    text-align: left;
+    border-radius: 20px;
+    color: rgb(101, 103, 107);
+    font-size: 17px;
+}
+.media-cr-post{
+	display: flex;
+	justify-content: space-around;
+	border-top: 1px solid #CED0D4;
+	padding-top: 8px;
+	margin-top: 12px;
+}
+.logo-cr-p{
+	padding: 8px;
+	display: flex;
+	cursor: pointer;
+	border-radius: 8px;
+	
+}
+.w{
+	width: 154px;
+    display: flex;
+    justify-content: center;
+}
+.logo-cr{
+	margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    background-image: url('/Images/FB-Small-icon.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 32px;
+    background-position-x: 0px;
+}
+.logo-cr-name{
+	font-size: 15px;
+    font-weight: 600;
+    color: rgb(101, 103, 107);	
+    line-height: 25px;
+}
+.vedio{
+	background-position-y: -80px;
+}
+.photo{
+	background-position-y: -201px;
+}
+.feeling{
+	background-position-y: -128px;
+}
+.logo-cr-p:hover{
+	background-color:#F2F2F2
+}

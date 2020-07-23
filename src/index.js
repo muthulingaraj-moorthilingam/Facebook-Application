@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Left from "./components/Left";
 import Feed from "./components/Feed";
 import Story from "./components/Story";
+import Post from "./components/Post";
 import './index.css';
 
 
@@ -24,7 +25,8 @@ class Garage extends React.Component{
 			story_Done:null,
 			items:[],
 			default:{},
-			tempItems:[]
+			tempItems:[],
+			userPosts:[]
 		}
 	}
 	childToparent = () =>{
@@ -44,7 +46,6 @@ class Garage extends React.Component{
 				},
 			
 		});
-		console.log(this.state.items)
 		hideElement();
 	}
 	/*storyTofeed =(value,style,img)=>{
@@ -54,7 +55,7 @@ class Garage extends React.Component{
 		this.childToparent(value,style,img);
 	}*/
 	upDateapi =(val,style,img) =>{
-
+		console.log(val,style,img)
 		this.setState({
 			tempItems:this.state.items.slice(1),
 			defaultText:val,
@@ -98,11 +99,14 @@ class Garage extends React.Component{
                 				<div className="story-div-part">
                   					<div className="story-block">
                     					<div id="root">
-                    						<Feed childToparent={this.childToparent} text={this.state.defaultText} style={this.state.defaultStyle} open={this.state.open} img={this.state.defaultImg} storyDone={this.state.story_Done} dataApi={this.state.tempItems} />
+                    						<Feed childToparent={this.childToparent} text={this.state.defaultText} style={this.state.defaultStyle} open={this.state.open} img={this.state.defaultImg} storyDone={this.state.story_Done} dataApi={this.state.tempItems} default={this.state.default} />
                     					</div>
                   					</div>
                 				</div>
               				</section>
+              				<div className="post-Section-both-user">
+                    			<Post details={this.state.userPosts} />
+                    		</div>
             			</div>
           			</div>
 					}
@@ -192,7 +196,12 @@ function hideElement(){
 	else if(messenger_Icon.classList.contains("hide")){
 		messenger_Icon.classList.remove("hide");
 	}
-	user_Left_side.classList.add("hide");
+	if(!user_Left_side.classList.contains("hide")){
+		user_Left_side.classList.add("hide");
+	}
+	else{
+		user_Left_side.classList.remove("hide");
+	}
 	
 }
 

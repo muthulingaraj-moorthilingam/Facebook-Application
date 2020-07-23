@@ -266,6 +266,8 @@
     white-space: pre-wrap;
     width: 112px;
   	text-overflow: ellipsis;
+  	text-align: center;
+  	color: #fff;
  } 
 .input-user-story-left::-webkit-scrollbar{
 	width: 8px;
@@ -301,7 +303,20 @@
     background: #1871E5;
     color: #fff;
 }
-
+.youstory-style{
+	border-radius: 8px;
+    border-bottom-left-radius: 10px;
+    top: 146px;
+    position: absolute;
+    padding: 20px 16px 12px 16px;
+    width: 100%;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 19px;
+    color: #000;
+}
 
 
 

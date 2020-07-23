@@ -28,6 +28,8 @@ class Feed extends React.Component{
 
 	render(){
 		console.log(this.props.storyDone)
+		console.log(this.props.style)
+		console.log(this.props.default)
 
 		const render = this.props.dataApi.map((items)=>
 			<div className="div-block-story" key ={items.userId} >
@@ -74,8 +76,11 @@ class Feed extends React.Component{
 							<div className="story-block-a-div">
 								<div className="rel">
 									<img src={this.props.img} alt="" className="sty-img-style"/>
-									<div className="ab-st-feed" style={this.props.style}>
+									<div className="ab-st-feed" style={this.props.style || this.props.default.style}>
 										{this.props.text}
+									</div>
+									<div className="youstory-style">
+										{"You Story"}
 									</div>
 								</div>
 							</div>

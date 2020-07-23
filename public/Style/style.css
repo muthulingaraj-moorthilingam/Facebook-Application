@@ -35,14 +35,14 @@ hr{
     justify-content: center;
 }
 #parent{
-	position: absolute;
+	position: fixed;
 	left: 0px;
 	z-index:2;
 	width:320px;
 }
 #left-side{
 	display: flex;
-    position: absolute;
+    position:fixed;
     right: 6px;
     z-index: 2;
 }
@@ -726,4 +726,11 @@ input::placeholder{
 }
 #createe-user-story-root{
 	
+}
+.post-Section-both-user{
+	width: 604px;
+}
+#left-side-main-page{
+	display: flex;
+    flex-basis: 23.7%;
 }
