@@ -29,7 +29,7 @@ user_menu.addEventListener("click",showMenus);
 
 
 function focusInputfield(event){
-
+var fb = document.getElementsByClassName('FB-right');
 	if(event.type === "focus"){
 		if(!parent.classList.contains("pa")){
 			parent.classList.add("pa");
@@ -43,6 +43,7 @@ function focusInputfield(event){
 				arrow.classList.add("arrow-show");
 				if(icon.classList.contains("icon")){
 					icon.classList.remove("icon");
+					
 				}
 			}
 

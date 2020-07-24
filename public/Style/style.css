@@ -37,14 +37,14 @@ hr{
 #parent{
 	position: fixed;
 	left: 0px;
-	z-index:2;
+	z-index:5;
 	width:320px;
 }
 #left-side{
 	display: flex;
     position:fixed;
     right: 6px;
-    z-index: 2;
+    z-index: 5;
 }
 .right-logo{
 	display: flex;
@@ -733,4 +733,19 @@ input::placeholder{
 #left-side-main-page{
 	display: flex;
     flex-basis: 23.7%;
+}
+.overlay{
+	position: absolute;
+    width: 100%;
+    height: calc(100vh - -135px);
+    top: -60px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+    background-color: #F0F2F5;
+    opacity: 0.8;
+}
+.center-part-main-page{
+	position: relative;
 }

@@ -5,6 +5,7 @@ import Left from "./components/Left";
 import Feed from "./components/Feed";
 import Story from "./components/Story";
 import Post from "./components/Post";
+import Createpost from "./components/Createpost";
 import './index.css';
 
 
@@ -23,10 +24,31 @@ class Garage extends React.Component{
 			uimg:"/Images/FB-D-u1.png",
 			open:null,
 			story_Done:null,
-			items:[],
+			items:[
+				{userId: "user1", name: "User", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"},
+				{userId: "user2", name: "User", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"},
+				{userId: "user3", name: "User", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"},
+				{userId: "user4", name: "User", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"}
+			],
 			default:{},
-			tempItems:[],
-			userPosts:[]
+			tempItems:[{userId: "user1", name: "User", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"},
+				{userId: "user2", name: "User", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"},
+				{userId: "user3", name: "User", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"},
+				{userId: "user4", name: "User", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"}
+			],
+			userPosts:[],
+			createPost:{
+				userImg:"/Images/FB-D-u1.png",
+				privacy:{
+					default:"Public",
+					img:"/Images/Post-img/Post-typs/FB-PT-Public.png"
+				},
+				text:null,
+				textBg:null,
+				feeling:null,
+				activities:null
+			},
+			postOpen:null
 		}
 	}
 	childToparent = () =>{
@@ -48,6 +70,12 @@ class Garage extends React.Component{
 		});
 		hideElement();
 	}
+
+	postOpenblock = () =>{
+		this.setState({
+			postOpen:!this.state.postOpen
+		})
+	}
 	/*storyTofeed =(value,style,img)=>{
 		this.setState({
 			open: !this.state.open,
@@ -65,7 +93,7 @@ class Garage extends React.Component{
 		});
 		this.childToparent();
 	}
-	componentDidMount(){
+	/*componentDidMount(){
 		fetch("https://testapi.io/api/Muthuraj/facebook/user/stories")
 			.then(res => res.json())
 			.then( (data) =>{
@@ -73,12 +101,18 @@ class Garage extends React.Component{
 					items:data,
 					tempItems:data
 				});
-				//console.log(this.state.items);
+				console.log(this.state.items);
 		});
-	}
+	}*/
 	render(){
 
 		return(
+			<div>
+			{
+					this.state.postOpen
+							&&
+					<div className="overlay" onClick={this.postOpenblock}></div>
+			}
 			<section className="center-part-main-page" >
 				<div id="react-part-main-app" className="react-part-main-app" style={{display:this.state.hide}}>
 					{
@@ -105,7 +139,7 @@ class Garage extends React.Component{
                 				</div>
               				</section>
               				<div className="post-Section-both-user">
-                    			<Post details={this.state.userPosts} />
+                    			<Post details={this.state.userPosts} postOpenblock={this.postOpenblock} />
                     		</div>
             			</div>
           			</div>
@@ -122,7 +156,17 @@ class Garage extends React.Component{
 						}
 					</div>
 				</div>
+				<div>
+					<div>
+						{
+							this.state.postOpen
+									&&
+							<Createpost postOpenblock={this.postOpenblock} />
+						}
+					</div>
+				</div>
 			</section>
+			</div>
 		);
 	}
 }

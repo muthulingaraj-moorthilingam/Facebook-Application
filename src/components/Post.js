@@ -8,6 +8,9 @@ class Post  extends React.Component{
 			userName:"default-User"
 		};
 	}
+	renderPost = () =>{
+		this.props.postOpenblock();
+	}
 	render(){
 		return(
 			<div className="create-post">
@@ -20,7 +23,7 @@ class Post  extends React.Component{
 										<img className="img-cr-post" src={this.state.userImg} alt="" />
 									</a>
 								</div>
-								<div className="search-blk-post">
+								<div className="search-blk-post" onClick={this.renderPost} >
 									<div className="cr-mind">
 										{"What's on your mind, "}{this.state.userName}
 									</div>
@@ -34,7 +37,7 @@ class Post  extends React.Component{
 									</div>
 								</div>
 								<div className="logo-cr-p w">
-									<div className="logo-cr photo"></div>
+									<div className="logo-cr photo1"></div>
 									<div className="logo-cr-name">
 										Photo/Vedio
 									</div>
