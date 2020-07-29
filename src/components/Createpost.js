@@ -10,7 +10,9 @@ class Createpost extends React.Component{
 			textBg:"#fff",
 			classNameAa:"aa-img",
 			changeBgcolor:null,
-			overFlow:null
+			overFlow:null,
+			emoji:null,
+			textvalue:""
 		};
 	}
 	setStyle =() =>{
@@ -34,14 +36,33 @@ class Createpost extends React.Component{
 			changeBgcolor:img
 		})
 	}
+	emoji =() =>{
+		this.setState({
+			emoji:!this.state.emoji
+		})
+	}
+	setEmojiforTextarea =(emoji)=>{
+		this.value("&#x"+emoji+";")	
+	}
+	value =(value)=>{
+		this.setState({
+			textvalue:value
+		});
+	}
 	render(){
 		const bgImgs =[
 				"#F0F2F5","rgb(198, 0, 255)","/Images/Post-img/FB-Post-Tree","/Images/Post-img/FB-Post-Sa","/Images/Post-img/FB-Post-Heart",
 				"/Images/Post-img/FB-Post-Smile","/Images/Post-img/FB-Post-Fire","/Images/Post-img/FB-Post-Walk","/Images/Post-img/FB-Post-Square"
 		];
 
+		const emoji = ["1f4aa","1f9d0","1f44d","1f60b","1f60c","1f60d","1f60e","1f61b","1f61c","1f61d","1f64f","1f600","1f601","1f602","1f603","1f605","1f607",
+		"1f609","1f614","1f621","1f634","1f642","1f643","1f916","1f923","1f929","1f937","1f970","1f973","263a"];
+
 		const render =bgImgs.map((img)=>	
 			<Bgimgs src={img} key={img} changeBgcolor={this.changeBgcolor} setStyle={this.setStyle} />
+		);
+		const renderEmoji = emoji.map((emojis) =>
+			<Emoji emoji={emojis} key={emojis} setEmojiforTextarea={this.setEmojiforTextarea} />
 		);
 		return(
 			<div className="post-create-div" >
@@ -78,7 +99,7 @@ class Createpost extends React.Component{
 									<div className="text-area-post">
 										<div className="bg-text-div">
 											<div className={"t-comp-post-cr "+this.state.overFlow}>
-												<TextatraPost bg={this.state.changeBgcolor} styleFortext={this.state.styleFortext} />
+												<TextatraPost bg={this.state.changeBgcolor} styleFortext={this.state.styleFortext} value={this.value} data={this.state.textvalue}  />
 												<div className="bg-styleing">
 													<div className="bg-img-set">
 														<div className="aa-default-bg" onClick={this.renderBgimg}>
@@ -94,9 +115,34 @@ class Createpost extends React.Component{
 															}
 														</div>
 														{ this.state.render_Bglist === false ?  render : ""}
+														{ this.state.render_Bglist === false 
+																	?
+															<div className="s1-4d-parent">
+																<div className="sq-4"></div>
+															</div>
+																	:
+																	""
+														}
 													</div>
-													<div className="smile-feel">
-														<div className="smile"></div>
+													<div className="smile-feel"  >
+														<div className="smile" onClick={this.emoji}>
+															
+														</div>
+														{
+																this.state.emoji
+																	 &&
+																<div className="post-emoji-top">
+																	<span className="int-mark"></span>
+																	<div>
+																		<h3 className="sm-p-post">Smileys & people</h3>
+																			<div className="emoji-box">
+																				{
+																					renderEmoji
+																				}
+																			</div>
+																		</div>
+																	</div>
+														}
 													</div>
 												</div>
 											</div>
@@ -122,10 +168,13 @@ export class TextatraPost extends React.Component{
 			bgImg:this.props.bg
 		}
 	}
+	value=(event)=>{
+		this.props.value(event.target.value);
+	}
 	render(){
 		return(
 			<div className="t-p-cr-ty" style={{backgroundImage:"url("+this.props.bg+"-bg.jpg)"}}>
-				<textarea className="text-post-cr-type" placeholder="What's on your mind, Muthu?" ></textarea>
+				<textarea className="text-post-cr-type" placeholder="What's on your mind, Muthu?" onChange={this.value} value={this.props.data} ></textarea>
 			</div>
 		);	
 	}
@@ -160,3 +209,36 @@ export class Bgimgs extends React.Component{
 	}
 }
 
+export class Emoji extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={};
+	}
+	setEmoji =() =>{
+		this.props.setEmojiforTextarea(this.props.emoji);
+	}
+	render(){
+		return(
+			<div className="po-emo-box" onClick={this.setEmoji} >
+				<img className="po-emo-img" src={"/Images/Post-img/Post-emoji/"+this.props.emoji+".png"} alt={this.props.emoji.toString()}  />
+			</div>
+		);
+	}
+}
+
+
+
+
+
+
+//<img src={"/Images/Post-img/Post-emoji/"+this.props.emoji[11]+".png"} alt={"&#x"+this.props.emoji[11]+";"}/>
+
+/*<div className="post-emoji-top">
+				<span className="int-mark"></span>
+				<div>
+					<h3 className="sm-p-post">Smileys & people</h3>
+					<div className="emoji-box">
+						{renderEmoji}
+					</div>
+				</div>
+			</div>*/
