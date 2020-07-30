@@ -42,7 +42,12 @@ class Createpost extends React.Component{
 		})
 	}
 	setEmojiforTextarea =(emoji)=>{
-		this.value("&#x"+emoji+";")	
+		var textarea=document.getElementById("textarea");
+		textarea.innerHTML+="&#x"+emoji+"; ";
+		this.setState({
+			emoji:!this.state.emoji
+		})
+		this.value("&#x"+emoji+"; ")	
 	}
 	value =(value)=>{
 		this.setState({
@@ -98,8 +103,16 @@ class Createpost extends React.Component{
 								<div className="textareaPost">
 									<div className="text-area-post">
 										<div className="bg-text-div">
-											<div className={"t-comp-post-cr "+this.state.overFlow}>
-												<TextatraPost bg={this.state.changeBgcolor} styleFortext={this.state.styleFortext} value={this.value} data={this.state.textvalue}  />
+											<div className="t-comp-post-cr">
+												{/*<TextatraPost bg={this.state.changeBgcolor} styleFortext={this.state.styleFortext} value={this.value} data={this.state.textvalue}  />*/}
+												
+												<div className="t-p-cr-ty" style={{backgroundImage:"url("+this.state.changeBgcolor+"-bg.jpg)"}}>
+													<div className="text-post-cr-type" id="textarea" placeholder="What's on your mind, Muthu?" contentEditable="true" onKeyUp={this.value} ></div>
+				
+												</div>
+
+
+
 												<div className="bg-styleing">
 													<div className="bg-img-set">
 														<div className="aa-default-bg" onClick={this.renderBgimg}>
@@ -161,24 +174,6 @@ class Createpost extends React.Component{
 
 export default Createpost;
 
-export class TextatraPost extends React.Component{
-	constructor(props){
-		super(props);
-		this.state={
-			bgImg:this.props.bg
-		}
-	}
-	value=(event)=>{
-		this.props.value(event.target.value);
-	}
-	render(){
-		return(
-			<div className="t-p-cr-ty" style={{backgroundImage:"url("+this.props.bg+"-bg.jpg)"}}>
-				<textarea className="text-post-cr-type" placeholder="What's on your mind, Muthu?" onChange={this.value} value={this.props.data} ></textarea>
-			</div>
-		);	
-	}
-}
 
 export class Bgimgs extends React.Component{
 	constructor(props){
@@ -241,4 +236,34 @@ export class Emoji extends React.Component{
 						{renderEmoji}
 					</div>
 				</div>
-			</div>*/
+			</div>
+
+export class TextatraPost extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={
+			bgImg:this.props.bg
+		}
+	}
+	value=(event)=>{
+		var textarea=document.getElementById("textarea");
+		textarea.innerHTML+=this.props.data;
+		var p =document.getElementById("p");
+		console.log(textarea.innerHTML)
+		p.innerHTML=textarea.innerHTML+this.props.data;
+		this.props.value(event.target.value);
+	}
+	render(){
+		return(
+			<div className="t-p-cr-ty" style={{backgroundImage:"url("+this.props.bg+"-bg.jpg)"}}>
+				<div className="text-post-cr-type" id="textarea" placeholder="What's on your mind, Muthu?" contentEditable="true" onKeyUp={this.value} ></div>
+				<button onClick={this.value}>click</button>
+				<div id="p"></div>
+			</div>
+		);	
+	}
+}
+
+
+
+			*/
