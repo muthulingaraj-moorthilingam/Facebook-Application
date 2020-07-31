@@ -43,16 +43,21 @@ class Createpost extends React.Component{
 	}
 	setEmojiforTextarea =(emoji)=>{
 		var textarea=document.getElementById("textarea");
-		textarea.innerHTML+="&#x"+emoji+"; ";
+		textarea.innerHTML+="&#x"+emoji+";";
 		this.setState({
-			emoji:!this.state.emoji
+			emoji:!this.state.emoji,
+		textvalue:textarea.innerHTML
 		})
-		this.value("&#x"+emoji+"; ")	
+		//this.value("&#x"+emoji+"; ")	
 	}
-	value =(value)=>{
+	value =(event)=>{
 		this.setState({
-			textvalue:value
+			textvalue:event.target.innerHTML
 		});
+	}
+	pushPost =() =>{
+		console.log(this.state.changeBgcolor,"  ",this.state.textvalue);
+		this.props.pushThePost(this.state.textvalue,this.state.changeBgcolor);
 	}
 	render(){
 		const bgImgs =[
@@ -107,8 +112,7 @@ class Createpost extends React.Component{
 												{/*<TextatraPost bg={this.state.changeBgcolor} styleFortext={this.state.styleFortext} value={this.value} data={this.state.textvalue}  />*/}
 												
 												<div className="t-p-cr-ty" style={{backgroundImage:"url("+this.state.changeBgcolor+"-bg.jpg)"}}>
-													<div className="text-post-cr-type" id="textarea" placeholder="What's on your mind, Muthu?" contentEditable="true" onKeyUp={this.value} ></div>
-				
+													<div className="text-post-cr-type" id="textarea" data-text="true" placeholder="What's on your mind, Muthu?" contentEditable="true" onKeyUp={this.value} ></div>
 												</div>
 
 
@@ -159,10 +163,18 @@ class Createpost extends React.Component{
 													</div>
 												</div>
 											</div>
+											<div className="post-details">
+												<Addto />
+												<div style={{padding:"16px 16px 0px 16px"}}>
+													<div className="post-button" onClick={this.pushPost}>Post</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
-								<div className="post-details"></div>
+								<div >
+
+								</div>
 							</div>
 						</div>
 					</div>
@@ -221,7 +233,41 @@ export class Emoji extends React.Component{
 	}
 }
 
-
+function Addto(props){
+	return(
+		<div className="add-to-post">
+			<div className="add">
+				Add to your post
+			</div>
+			<div className="post-icon-add">
+				<div className="icon-add">
+					<span className="i-post-add v">
+					</span>
+				</div>
+				<div className="icon-add">
+					<span className="i-post-add p">
+					</span>
+				</div>
+				<div className="icon-add">
+					<span className="i-post-add tag">
+					</span>
+				</div>
+				<div className="icon-add">
+					<span className="i-post-add location lo">
+					</span>
+				</div>
+				<div className="icon-add">
+					<span className="i-post-add sm">
+					</span>
+				</div>
+				<div className="icon-add">
+					<span className="i-post-add dots3 dots">
+					</span>
+				</div>
+			</div>
+		</div>
+	);
+}
 
 
 

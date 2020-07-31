@@ -113,7 +113,6 @@
 	border: 1px solid #fff;
 	border-radius:8px;
 	width: 500px;
-	height: 488px;
 	background: #fff;
     box-shadow: 0px 1px 19px rgba(0,0,0,0.4), 1px 0px 19px rgba(0,0,0,0.4);
     margin-bottom: 10px;
@@ -243,10 +242,10 @@
 	resize: none;
 	overflow-y: hidden;
 	white-space: pre-wrap;
-	font-size: 24px;
-    font-weight: 400;
+	font-size: 30px;
+    font-weight: 700;
     color: #000;
-    
+    text-align: center;
     background:transparent;
 }
 textarea::placeholder{
@@ -404,4 +403,91 @@ textarea::placeholder{
 .emoji-box{
 	display: flex;
     flex-wrap: wrap;
+}
+[contenteditable=true]:empty:before{
+	content:attr(placeholder);
+	pointer-events: none;
+}
+.text-post-cr-type[placeholder]:before{
+	opacity: 0.6;
+}
+.post-details{
+	padding: 16px 0px;
+}
+.add-to-post{
+	margin: 0px 16px;
+	padding: 8px;
+	border-radius: 8px;
+	border:1px solid #CED0D4;
+	display: flex;
+	justify-content: space-between;
+}
+.add{
+	padding: 0px 8px;
+	font-size: 15px;
+	font-weight: 600;
+	color: rgb(5,5,5);
+	line-height: 40px;
+	cursor: pointer;
+}
+.post-icon-add{
+	display: flex;
+}
+.icon-add{
+	width: 36px;
+	height: 36px;
+	margin: 2px;
+	cursor: pointer;
+}
+.icon-add:hover{
+	border-radius:50%;
+	background-color: #f2f2f2;
+}
+.i-post-add{
+	width: 24px;
+	height: 24px;
+	background-image: url("/Images/Post-img/FB-Post-4D.png");
+	background-repeat: no-repeat;
+	display: block;
+	margin: 5px auto;
+}
+.v{
+	background-size: auto;
+	background-position: 0px -57px;
+}
+.p{
+	background-size: auto;
+	background-position: 0px -207px;
+}
+.tag{
+	background-size: auto;
+	background-position: 0px -158px;
+}
+.lo{
+	background-size: auto;
+	background-position: -25px -305px;
+}
+.location{
+	background-image: url("/Images/Post-img/FB-Pg.png");
+}
+.sm{
+	background-size: auto;
+	background-position: 0px -133px;
+}
+.dots3{
+	background-image: url("/Images/Post-img/FB-cross.png");
+}
+.dots{
+	background-size: auto;
+	background-position: 0px -74px;
+}
+.post-button{
+	text-align: center;
+	color: #fff;
+	background-color: rgb(24,119,242);
+	border-radius: 6px;
+	font-size: 15px;
+	font-weight: 600;
+	padding: 8px 12px;
+	cursor:pointer;
 }

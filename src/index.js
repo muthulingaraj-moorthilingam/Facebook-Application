@@ -6,6 +6,7 @@ import Feed from "./components/Feed";
 import Story from "./components/Story";
 import Post from "./components/Post";
 import Createpost from "./components/Createpost";
+import Userposts from "./components/Userposts";
 import './index.css';
 
 
@@ -48,7 +49,9 @@ class Garage extends React.Component{
 				feeling:null,
 				activities:null
 			},
-			postOpen:null
+			postOpen:null,
+			postContent:"",
+			postBackground:null
 		}
 	}
 	childToparent = () =>{
@@ -104,6 +107,13 @@ class Garage extends React.Component{
 				console.log(this.state.items);
 		});
 	}*/
+	pushThePost =(content,bgImg) =>{
+		this.setState({
+			postContent:content,
+			postBackground:bgImg
+		});
+		this.postOpenblock();
+	}
 	render(){
 
 		return(
@@ -140,7 +150,16 @@ class Garage extends React.Component{
               				</section>
               				<div className="post-Section-both-user">
                     			<Post details={this.state.userPosts} postOpenblock={this.postOpenblock} />
+                    			<div className="post-push-user">
+                    				<Userposts background={this.state.postBackground} content={this.state.postContent} />
+                    				{/*<div className="post-push-content" style={{backgroundImage:"url("+this.state.postBackground+"-bg.jpg)"}}>
+                    					<div className="p-content">
+                    						{this.state.postContent}
+                    					</div>
+                    				</div>*/}
+                    			</div>
                     		</div>
+                    		
             			</div>
           			</div>
 					}
@@ -161,9 +180,11 @@ class Garage extends React.Component{
 						{
 							this.state.postOpen
 									&&
-							<Createpost postOpenblock={this.postOpenblock} />
+							<Createpost postOpenblock={this.postOpenblock} pushThePost={this.pushThePost} />
 						}
 					</div>
+				</div>
+				<div >
 				</div>
 			</section>
 			</div>
