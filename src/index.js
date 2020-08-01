@@ -7,6 +7,7 @@ import Story from "./components/Story";
 import Post from "./components/Post";
 import Createpost from "./components/Createpost";
 import Userposts from "./components/Userposts";
+import Userposttop from "./components/Userposttop";
 import './index.css';
 
 
@@ -51,7 +52,15 @@ class Garage extends React.Component{
 			},
 			postOpen:null,
 			postContent:"",
-			postBackground:null
+			postBackground:null,
+			friendPost:[{userId: "user1", name: "Suyamburaj", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"},
+				{userId: "user2", name: "Vijay", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"},
+				{userId: "user3", name: "Muthulingataj moorthilingam", font: "", text: "", bgImg: "/Images/FB-U-S1.jpg"},
+				{userId: "user4", name: "Mano Bharathi", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"},
+				{userId: "user5", name: "Mano Bharathi", font: "", text: "Your life does not get better by chance.It gets better by change", bgImg: "/Images/FB-U-S1.jpg"}
+			],
+			userPostdone:null,
+			userPostsCount:[]
 		}
 	}
 	childToparent = () =>{
@@ -108,14 +117,26 @@ class Garage extends React.Component{
 		});
 	}*/
 	pushThePost =(content,bgImg) =>{
+		var data ={
+			"userId":"user"+ (this.state.userPostsCount.length+1), "name": "User", font: "", "text": content, bgImg:bgImg
+		};
+
 		this.setState({
 			postContent:content,
-			postBackground:bgImg
+			postBackground:bgImg,
+			userPostdone:!this.state.userPostdone,
+			//userPostsCount:this.state.userPostsCount.push(data)
 		});
 		this.postOpenblock();
+		console.log(this.state.userPostsCount)
 	}
 	render(){
-
+			const renderPosts = this.state.friendPost.map((post)=>
+                <Userposts key={post.userId} background={this.state.postBackground} content={this.state.postContent} post={post}  />
+            );
+           /* const userPostdones = this.state.userPostsCount.map((post) =>
+            	<Userposttop key={post.userId} background={post.bgImg} content={post.text} />
+            )*/
 		return(
 			<div>
 			{
@@ -150,13 +171,27 @@ class Garage extends React.Component{
               				</section>
               				<div className="post-Section-both-user">
                     			<Post details={this.state.userPosts} postOpenblock={this.postOpenblock} />
+                    			{
+                    				<div className="user-post-push-top">
+                    					{
+                    						this.state.userPostdone
+                    									&&
+                    						<Userposttop background={this.state.postBackground} content={this.state.postContent} name={"User"} />
+                    					}
+                    				</div>
+                    			}
                     			<div className="post-push-user">
-                    				<Userposts background={this.state.postBackground} content={this.state.postContent} />
+                    			{
+                    				renderPosts
+                    			}
+                    				
                     				{/*<div className="post-push-content" style={{backgroundImage:"url("+this.state.postBackground+"-bg.jpg)"}}>
                     					<div className="p-content">
                     						{this.state.postContent}
                     					</div>
-                    				</div>*/}
+                    				</div>
+									//<Userposts background={this.state.postBackground} content={this.state.postContent} />
+                    			*/}
                     			</div>
                     		</div>
                     		

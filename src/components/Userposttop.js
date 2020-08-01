@@ -1,7 +1,7 @@
 import React from 'react'
 import '../userposts.css'
 
-class Userposts extends React.Component{
+class Userposttop extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
@@ -20,10 +20,7 @@ class Userposts extends React.Component{
                     		<div className="user-post-name">
                     			<div className="name-user-post">
                     				<a href="# profile" className="a-post-name">
-                    					{/*"User Name"*/}
-                    					{
-                    						this.props.post.name
-                    					}
+                    					{this.props.name}
                     				</a>
                     			</div>
                     			<div className="time"></div>
@@ -35,12 +32,10 @@ class Userposts extends React.Component{
                     	</div>
                     </div>
                     <div className="user-post-content-bg">
-                    	{/*<div className="p-bg-cont" style={{backgroundImage:"url("+this.props.background+"-bg.jpg)"}}>*/}
-                    	<div className="p-bg-cont" style={{backgroundImage:"url("+this.props.post.bgImg+")"}}>
+                    	<div className="p-bg-cont" style={{backgroundImage:"url("+this.props.background+"-bg.jpg)"}}>
                     		<div className="cont-post-user">
                     			{
-                    				//this.props.content
-                    				this.props.post.text
+                    				this.props.content
                     			}
                     		</div>
                     	</div>
@@ -65,4 +60,4 @@ class Userposts extends React.Component{
 	}
 }
 
-export default Userposts;
+export default Userposttop;

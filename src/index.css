@@ -137,3 +137,10 @@ code {
 .parnt-sty-root-child{
 	display: flex;
 }
+.user-post-push-top{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
